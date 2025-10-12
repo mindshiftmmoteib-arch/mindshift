@@ -51,20 +51,21 @@ export async function POST(req: NextRequest) {
     }
 
     // Check if room exists and user owns it
-    const { data: room, error: roomError } = await supabase
+    const { data: rooms, error: roomError } = await supabase
       .from("rooms")
       .select("*")
       .eq("room_name", roomName)
       .eq("owner_id", user.id)
-      .eq("is_active", true)
-      .single();
+      .eq("is_active", true);
 
-    if (roomError || !room) {
+    if (roomError || !rooms || rooms.length === 0) {
       return NextResponse.json(
         { error: "Room not found or access denied" },
         { status: 404 }
       );
     }
+
+    const room = rooms[0]; // Take the first (and should be only) room
 
     // Generate shareable link
     const shareableLink = `${req.nextUrl.origin}/join/${roomName}`;

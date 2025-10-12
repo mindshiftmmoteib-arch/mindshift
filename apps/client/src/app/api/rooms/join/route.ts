@@ -28,15 +28,14 @@ export async function GET(req: NextRequest) {
 
     const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-    // Check if room exists and is active
-    const { data: room, error: roomError } = await supabase
+    // Check if room exists and is active (use .maybeSingle() instead of .single())
+    const { data: rooms, error: roomError } = await supabase
       .from("rooms")
       .select("*")
       .eq("room_name", roomName)
-      .eq("is_active", true)
-      .single();
+      .eq("is_active", true);
 
-    console.log("Join room debug:", { roomName, room, roomError });
+    console.log("Join room debug:", { roomName, rooms, roomError });
 
     if (roomError) {
       console.error("Room query error:", roomError);
@@ -46,13 +45,15 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    if (!room) {
+    if (!rooms || rooms.length === 0) {
       console.log("No room found for name:", roomName);
       return NextResponse.json(
         { error: "Room not found or is no longer active" },
         { status: 404 }
       );
     }
+
+    const room = rooms[0]; // Take the first (and should be only) room
 
     return NextResponse.json({ 
       room: {

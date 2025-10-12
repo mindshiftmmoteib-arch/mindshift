@@ -30,8 +30,11 @@ export default function JoinRoomPage() {
       }
 
       try {
-        console.log("Fetching room:", params.roomName);
-        const response = await fetch(`/api/rooms/join?roomName=${encodeURIComponent(params.roomName)}`);
+        // Decode the room name in case it's URL encoded
+        const decodedRoomName = decodeURIComponent(params.roomName);
+        console.log("Fetching room:", { original: params.roomName, decoded: decodedRoomName });
+        
+        const response = await fetch(`/api/rooms/join?roomName=${encodeURIComponent(decodedRoomName)}`);
         
         console.log("Response status:", response.status);
         const responseData = await response.json();
@@ -69,12 +72,12 @@ export default function JoinRoomPage() {
     
     if (!session) {
       // Redirect to login with return URL
-      router.push(`/login?redirect=/join/${room.room_name}`);
+      router.push(`/login?redirect=/join/${encodeURIComponent(room.room_name)}`);
       return;
     }
 
     // Join the room
-    router.push(`/call/${room.room_name}`);
+    router.push(`/call/${encodeURIComponent(room.room_name)}`);
   };
 
   if (loading) {
