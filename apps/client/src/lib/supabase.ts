@@ -6,7 +6,13 @@ export const supabaseConfigured = Boolean(supabaseUrl && supabaseAnon)
 
 export const supabase = supabaseConfigured
   ? createClient(supabaseUrl as string, supabaseAnon as string, {
-      auth: { persistSession: true, autoRefreshToken: true }
+      auth: { 
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true,
+        storage: typeof window !== 'undefined' ? window.localStorage : undefined,
+        storageKey: 'travoices-auth-token',
+      }
     })
   : null
 

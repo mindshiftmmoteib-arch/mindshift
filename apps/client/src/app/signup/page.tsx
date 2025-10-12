@@ -38,13 +38,38 @@ function SignupPageInner() {
       email, 
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`
+        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        data: {
+          email: email,
+          full_name: email.split('@')[0], // Use email prefix as default name
+        }
       }
     })
     
     if (error) {
       setStatus(`Error: ${error.message}`)
       return
+    }
+    
+    // Create user profile in database
+    if (data.user) {
+      try {
+        const { error: profileError } = await supabase
+          .from('users')
+          .insert({
+            id: data.user.id,
+            email: email,
+            full_name: email.split('@')[0],
+            onboarded: false
+          })
+        
+        if (profileError) {
+          console.log('Profile creation note:', profileError.message)
+          // Don't show error to user as the account was created successfully
+        }
+      } catch (err) {
+        console.log('Profile creation note:', err)
+      }
     }
     
     // Check if email confirmation is required

@@ -5,6 +5,13 @@ create extension if not exists pgcrypto;
 -- USERS TABLE (profile linked to auth.users)
 create table if not exists public.users (
   id uuid primary key references auth.users(id) on delete cascade,
+  email text,
+  full_name text,
+  avatar_url text,
+  phone text,
+  bio text,
+  company text,
+  website text,
   onboarded boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()

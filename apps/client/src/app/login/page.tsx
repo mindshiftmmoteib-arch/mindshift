@@ -181,7 +181,7 @@ function LoginBody() {
                     📧 You need to verify your email before logging in. Check your inbox for the confirmation link.
                   </p>
                   <p className="text-xs">
-                    💡 Didn't receive it? Check your spam folder or try signing up again.
+                    💡 Didn&apos;t receive it? Check your spam folder or try signing up again.
                   </p>
                 </div>
               )}

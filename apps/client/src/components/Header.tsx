@@ -127,7 +127,10 @@ export default function Header() {
             <span className="sm:hidden">Call</span>
           </button>
           {authed ? (
-            <button onClick={() => supabase?.auth.signOut()} className="hidden sm:block rounded-md border px-3 py-1.5 text-sm border-white/15 hover:bg-white/10">Logout</button>
+            <div className="hidden sm:flex items-center gap-2">
+              <Link href="/profile" className="rounded-md border px-3 py-1.5 text-sm border-white/15 hover:bg-white/10 bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">Profile</Link>
+              <button onClick={() => supabase?.auth.signOut()} className="rounded-md border px-3 py-1.5 text-sm border-white/15 hover:bg-white/10">Logout</button>
+            </div>
           ) : (
             <div className="hidden sm:flex items-center gap-2">
               <Link href="/login" className="rounded-md border px-3 py-1.5 text-sm border-white/15 hover:bg-white/10 bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">Login</Link>
@@ -213,12 +216,21 @@ export default function Header() {
             {/* Auth buttons in Mobile */}
             <div className="border-t border-white/10 pt-2 mt-2 space-y-1">
               {authed ? (
-                <button 
-                  onClick={() => { supabase?.auth.signOut(); setMobileMenuOpen(false); }} 
-                  className="w-full text-left px-3 py-2 text-sm rounded border border-white/15 hover:bg-white/10"
-                >
-                  Logout
-                </button>
+                <>
+                  <Link 
+                    href="/profile" 
+                    className="block w-full text-center px-3 py-2 text-sm rounded border border-white/15 hover:bg-white/10 bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-red-900 to-slate-900"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    My Profile
+                  </Link>
+                  <button 
+                    onClick={() => { supabase?.auth.signOut(); setMobileMenuOpen(false); }} 
+                    className="w-full text-left px-3 py-2 text-sm rounded border border-white/15 hover:bg-white/10"
+                  >
+                    Logout
+                  </button>
+                </>
               ) : (
                 <>
                   <Link 
