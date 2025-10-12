@@ -3,10 +3,13 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { createVoiceSession, finishVoiceSession, sendVoiceChunk, streamVoiceSession, transcribeVoice } from "../lib/api"
 
+type DeltaNode = { id: string; label: string; position: { x: number; y: number }; type?: 'root' | 'thought' | 'action' | 'emotion' };
+type DeltaEdge = { id: string; source: string; target: string; label?: string };
+
 type VoiceRecorderProps = {
   onTranscribed: (text: string) => void
   mode?: 'single' | 'live'
-  onDelta?: (delta: { nodes?: any[]; edges?: any[] }) => void
+  onDelta?: (delta: { nodes?: DeltaNode[]; edges?: DeltaEdge[] }) => void
 }
 
 export default function VoiceRecorder({ onTranscribed, mode = 'single', onDelta }: VoiceRecorderProps) {
@@ -53,11 +56,13 @@ export default function VoiceRecorder({ onTranscribed, mode = 'single', onDelta 
           sessionIdRef.current = sessionId
           eventSourceRef.current = streamVoiceSession(sessionId, (evt) => {
             if (evt.type === 'transcript') {
-              const text = (evt.data?.chunks?.map((c: any) => c.text) || []).join(' ')
+              const data = evt.data as { chunks?: Array<{ text: string }> };
+              const text = (data?.chunks?.map((c) => c.text) || []).join(' ')
               if (text) onTranscribed(text)
             }
             if (evt.type === 'delta') {
-              onDelta?.(evt.data?.delta || {})
+              const data = evt.data as { delta?: { nodes?: DeltaNode[]; edges?: DeltaEdge[] } };
+              onDelta?.(data?.delta || {})
             }
           })
         }
@@ -111,7 +116,7 @@ export default function VoiceRecorder({ onTranscribed, mode = 'single', onDelta 
             try { await sendVoiceChunk(sid, chunkBlob) } catch {}
           }
         }, 2500)
-        ;(mr as any)._ncInterval = interval
+        ;(mr as MediaRecorder & { _ncInterval?: NodeJS.Timeout })._ncInterval = interval
       }
     } catch (e: unknown) {
       setError(e instanceof Error ? e.message : "Failed to access microphone")
@@ -135,9 +140,10 @@ export default function VoiceRecorder({ onTranscribed, mode = 'single', onDelta 
     const mr = mediaRecorderRef.current
     if (!mr) return
     try { mr.stop() } catch {}
-    if ((mr as any)._ncInterval) {
-      clearInterval((mr as any)._ncInterval)
-      ;(mr as any)._ncInterval = undefined
+    const mrWithInterval = mr as MediaRecorder & { _ncInterval?: NodeJS.Timeout };
+    if (mrWithInterval._ncInterval) {
+      clearInterval(mrWithInterval._ncInterval)
+      mrWithInterval._ncInterval = undefined
     }
     mediaStreamRef.current?.getTracks().forEach((t) => t.stop())
     mediaStreamRef.current = null

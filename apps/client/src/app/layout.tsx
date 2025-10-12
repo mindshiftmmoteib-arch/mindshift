@@ -15,8 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NeuroCanvas",
-  description: "AI-powered thought mapping",
+  title: "TRAVoices",
+  description: "AI-powered real-time voice translation",
 };
 
 export default function RootLayout({

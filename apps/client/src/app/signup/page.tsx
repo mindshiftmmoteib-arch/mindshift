@@ -51,7 +51,7 @@ function SignupPageInner() {
       />
       <section className="max-w-xl mx-auto space-y-6">
         <div className="text-center space-y-2 text-slate-900">
-          <h1 className="text-3xl font-extrabold tracking-tight">Create your NeuroCanvas account</h1>
+          <h1 className="text-3xl font-extrabold tracking-tight">Create your TRAVoices account</h1>
           <p className="text-slate-700 text-sm">Start with a plan now or choose later. You can upgrade anytime.</p>
         </div>
 

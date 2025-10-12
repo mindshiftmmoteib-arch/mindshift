@@ -75,7 +75,7 @@ export async function createVoiceSession(): Promise<{ sessionId: string }> {
   return res.json()
 }
 
-export function streamVoiceSession(sessionId: string, onEvent: (evt: { type: 'transcript'|'delta'|'summary'|'heartbeat'; data: any }) => void): EventSource {
+export function streamVoiceSession(sessionId: string, onEvent: (evt: { type: 'transcript'|'delta'|'summary'|'heartbeat'; data: unknown }) => void): EventSource {
   const es = new EventSource(`${API_BASE_URL}/api/voice/session/${sessionId}/stream`)
   es.addEventListener('transcript', (e) => onEvent({ type: 'transcript', data: JSON.parse((e as MessageEvent).data) }))
   es.addEventListener('delta', (e) => onEvent({ type: 'delta', data: JSON.parse((e as MessageEvent).data) }))

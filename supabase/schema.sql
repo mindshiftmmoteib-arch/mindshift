@@ -60,11 +60,29 @@ create table if not exists public.templates (
   created_at timestamptz not null default now()
 );
 
+-- ROOMS TABLE
+create table if not exists public.rooms (
+  id uuid primary key default gen_random_uuid(),
+  room_name text not null unique,
+  owner_id uuid not null references public.users(id) on delete cascade,
+  title text not null default 'Untitled Room',
+  description text,
+  is_active boolean not null default true,
+  max_participants int default 10,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+drop trigger if exists trg_rooms_updated on public.rooms;
+create trigger trg_rooms_updated before update on public.rooms
+for each row execute function public.set_updated_at();
+
 -- RLS
 alter table public.users enable row level security;
 alter table public.maps enable row level security;
 alter table public.map_versions enable row level security;
 alter table public.templates enable row level security;
+alter table public.rooms enable row level security;
 
 -- Users can see and manage only their own profile
 drop policy if exists users_select_self on public.users;
@@ -113,8 +131,24 @@ drop policy if exists templates_delete_own on public.templates;
 create policy templates_delete_own on public.templates
   for delete using (user_id = auth.uid());
 
+-- Rooms policies: owner can manage, anyone can view active rooms
+drop policy if exists rooms_select_active on public.rooms;
+create policy rooms_select_active on public.rooms
+  for select using (is_active = true);
+drop policy if exists rooms_insert_own on public.rooms;
+create policy rooms_insert_own on public.rooms
+  for insert with check (owner_id = auth.uid());
+drop policy if exists rooms_update_own on public.rooms;
+create policy rooms_update_own on public.rooms
+  for update using (owner_id = auth.uid());
+drop policy if exists rooms_delete_own on public.rooms;
+create policy rooms_delete_own on public.rooms
+  for delete using (owner_id = auth.uid());
+
 -- Helpful index
 create index if not exists idx_maps_user_id on public.maps(user_id);
 create index if not exists idx_map_versions_map_id on public.map_versions(map_id);
+create index if not exists idx_rooms_owner_id on public.rooms(owner_id);
+create index if not exists idx_rooms_room_name on public.rooms(room_name);
 
 

@@ -39,10 +39,10 @@ export default function OnboardingPage() {
   const handleComplete = async () => {
     try {
       setError("")
-      setStatus("Generating map…")
+      setStatus("Creating voice room…")
       const { map } = await generateMap(seed)
-      setStatus("Saving map…")
-      await saveMap({ title: "My first map", graph: map })
+      setStatus("Saving room…")
+      await saveMap({ title: "My first voice room", graph: map })
       setStatus("Finalizing…")
       const { data: sessionData } = await supabase!.auth.getSession()
       const userId = sessionData.session!.user.id
@@ -59,8 +59,8 @@ export default function OnboardingPage() {
 
   return (
     <div className="max-w-xl mx-auto p-6 space-y-4">
-      <h1 className="text-xl font-semibold">Welcome to NeuroCanvas</h1>
-      <p className="text-sm opacity-70">Start by creating your first map. You can edit this text.</p>
+      <h1 className="text-xl font-semibold">Welcome to TRAVoices</h1>
+      <p className="text-sm opacity-70">Start by creating your first voice room. You can edit this text.</p>
       <label htmlFor="seed" className="block text-sm font-medium">Seed text</label>
       <textarea
         id="seed"
@@ -70,7 +70,7 @@ export default function OnboardingPage() {
         className="w-full rounded-md border border-black/10 dark:border-white/15 bg-transparent p-3"
       />
       <div className="flex items-center gap-3">
-        <button onClick={handleComplete} className="rounded-md bg-black text-white px-4 py-2 text-sm dark:bg-white dark:text-black">Create my first map</button>
+        <button onClick={handleComplete} className="rounded-md bg-black text-white px-4 py-2 text-sm dark:bg-white dark:text-black">Create my first voice room</button>
         {status && <span className="text-sm opacity-70">{status}</span>}
         {error && <span className="text-sm text-red-600">{error}</span>}
       </div>

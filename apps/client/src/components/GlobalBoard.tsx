@@ -53,7 +53,7 @@ export default function GlobalBoard() {
     setQuickText((prev) => (prev ? prev + "\n" : "") + text)
   }, [])
 
-  const handleDelta = useCallback((delta: { nodes?: any[]; edges?: any[] }) => {
+  const handleDelta = useCallback((delta: { nodes?: Array<{ id: string; label: string; position: { x: number; y: number }; type?: 'root' | 'thought' | 'action' | 'emotion' }>; edges?: Array<{ id: string; source: string; target: string; label?: string }> }) => {
     if (!delta) return
     setGraph((prev) => {
       const next = { nodes: prev.nodes.slice(), edges: prev.edges.slice() }

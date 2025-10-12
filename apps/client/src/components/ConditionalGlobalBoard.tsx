@@ -12,6 +12,8 @@ export default function ConditionalGlobalBoard() {
   if (pathname?.startsWith("/signup")) return null
   if (pathname?.startsWith("/logout")) return null
   if (pathname?.startsWith("/vision")) return null
+  if (pathname?.startsWith("/call")) return null
+  if (pathname?.startsWith("/rooms")) return null
   return <GlobalBoard />
 }
 
