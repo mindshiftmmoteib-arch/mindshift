@@ -30,16 +30,20 @@ export default function JoinRoomPage() {
       }
 
       try {
+        console.log("Fetching room:", params.roomName);
         const response = await fetch(`/api/rooms/join?roomName=${encodeURIComponent(params.roomName)}`);
         
+        console.log("Response status:", response.status);
+        const responseData = await response.json();
+        console.log("Response data:", responseData);
+        
         if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.error || "Failed to load room");
+          throw new Error(responseData.error || "Failed to load room");
         }
 
-        const { room: roomData } = await response.json();
-        setRoom(roomData);
+        setRoom(responseData.room);
       } catch (err) {
+        console.error("Join room error:", err);
         setError(err instanceof Error ? err.message : "Failed to load room");
       } finally {
         setLoading(false);

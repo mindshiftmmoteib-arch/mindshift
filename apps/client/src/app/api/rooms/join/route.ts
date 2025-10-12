@@ -36,7 +36,18 @@ export async function GET(req: NextRequest) {
       .eq("is_active", true)
       .single();
 
-    if (roomError || !room) {
+    console.log("Join room debug:", { roomName, room, roomError });
+
+    if (roomError) {
+      console.error("Room query error:", roomError);
+      return NextResponse.json(
+        { error: `Room not found: ${roomError.message}` },
+        { status: 404 }
+      );
+    }
+
+    if (!room) {
+      console.log("No room found for name:", roomName);
       return NextResponse.json(
         { error: "Room not found or is no longer active" },
         { status: 404 }
