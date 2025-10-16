@@ -1,6 +1,15 @@
+"use client"
+
 import Link from "next/link"
+import { useEffect, useState } from "react"
 
 export default function LandingPage() {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    setIsVisible(true)
+  }, [])
+
   return (
     <main className="space-y-16 relative">
       {/* Landing background: light cream with gold dot grid */}
@@ -16,29 +25,66 @@ export default function LandingPage() {
       />
       {/* Hero */}
       <section className="text-center space-y-4 sm:space-y-6 text-slate-900 px-2">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900">
-          Speak Naturally. Be Understood Instantly — with TRAVoices
+        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Speak Naturally.</span>{' '}
+          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Be Understood Instantly</span>{' '}
+          <span className={`inline-block transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>— with TRAVoices</span>
         </h1>
-        <p className="mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2">
+        <p className={`mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 transition-all duration-1000 delay-700 ease-out ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           An AI-powered real-time translation platform that lets people speak any language — and be heard in their own cloned voice.
           Bridge conversations across cultures, languages, and accents — all in real time.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <Link
             href="/signup"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30"
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-1000 delay-900 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+            }`}
             aria-label="Start talking"
+            style={{
+              backgroundSize: '200% 100%',
+              animation: isVisible ? 'balayageRTL 3s ease-in-out infinite' : 'none'
+            }}
           >
-            Start Talking
+            <span className="relative z-10">Start Talking</span>
           </Link>
           <Link
             href="/signup"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border border-white/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30"
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border border-white/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden transition-all duration-1000 delay-1000 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+            }`}
             aria-label="Create an account"
+            style={{
+              background: 'linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.05) 100%)',
+              backgroundSize: '200% 100%',
+              animation: isVisible ? 'balayageLTR 3s ease-in-out infinite' : 'none'
+            }}
           >
-            Create Account
+            <span className="relative z-10">Create Account</span>
           </Link>
         </div>
+        <style jsx>{`
+          @keyframes balayageRTL {
+            0%, 100% {
+              background-position: 100% 50%;
+            }
+            50% {
+              background-position: 0% 50%;
+            }
+          }
+          @keyframes balayageLTR {
+            0%, 100% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+          }
+        `}</style>
       </section>
 
       {/* Who we are */}
