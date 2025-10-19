@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { useEffect, useState, useCallback } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import { supabase } from '../lib/supabase'
-import { deleteMap, listMaps } from '../lib/api'
 
 export default function Header() {
   const router = useRouter()
@@ -26,24 +25,8 @@ export default function Header() {
 
   const [menuOpen, setMenuOpen] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [maps, setMaps] = useState<Array<{ id: string; title: string; created_at: string }>>([])
 
-  useEffect(() => {
-    if (!authed) return
-    let mounted = true
-    listMaps().then((m) => { if (mounted) setMaps(m) }).catch(() => {})
-    return () => { mounted = false }
-  }, [authed])
 
-  const handleClearAll = useCallback(async () => {
-    if (!maps.length) return
-    const ok = window.confirm('Clear all maps? This cannot be undone.')
-    if (!ok) return
-    try {
-      await Promise.allSettled(maps.map((m) => deleteMap(m.id)))
-      setMaps([])
-    } catch {}
-  }, [maps])
 
   return (
     <div className="w-full rounded-none md:rounded-lg border-b md:border md:border-white/15 bg-white/5 backdrop-blur">
@@ -80,36 +63,7 @@ export default function Header() {
           <Link href={pathname?.startsWith('/ar') ? '/ar/rooms' : '/rooms'} className="px-2 py-1 text-sm rounded hover:bg-white/10 bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
             {pathname?.startsWith('/ar') ? 'الغرف' : 'Rooms'}
           </Link>
-          <div className="relative">
-            <button onClick={() => setMenuOpen((v) => !v)} className="px-2 py-1 text-sm rounded hover:bg-white/10 bg-clip-text text-transparent bg-gradient-to-br from-slate-900 via-red-900 to-slate-900">
-              {pathname?.startsWith('/ar') ? 'المكالمات' : 'Calls'}
-            </button>
-            {menuOpen ? (
-              <div className="absolute left-0 mt-2 w-64 rounded-md border border-white/15 bg-black/70 backdrop-blur shadow-xl p-2 z-50">
-                <div className="text-xs uppercase tracking-wide text-white/70 px-1 pb-1">{pathname?.startsWith('/ar') ? 'مكالماتك' : 'Your calls'}</div>
-                <ul className="max-h-60 overflow-auto space-y-1">
-                  {maps.map((m) => (
-                    <li key={m.id} className="flex items-center justify-between gap-2 rounded px-2 py-1 hover:bg-white/10">
-                      <Link href={`/maps/${m.id}`} className="truncate text-sm">{m.title}</Link>
-                      <button
-                        onClick={async (e) => { e.preventDefault(); e.stopPropagation(); try { await deleteMap(m.id); setMaps((prev) => prev.filter((x) => x.id !== m.id)) } catch {} }}
-                        className="text-xs rounded border border-white/20 px-2 py-0.5 hover:bg-white/10"
-                        title={pathname?.startsWith('/ar') ? 'حذف المكالمة' : 'Delete call'}
-                      >
-                        {pathname?.startsWith('/ar') ? 'مسح' : 'Clear'}
-                      </button>
-                    </li>
-                  ))}
-                  {maps.length === 0 && <li className="px-2 py-1 text-sm text-white/60">{pathname?.startsWith('/ar') ? 'لا توجد مكالمات' : 'No calls'}</li>}
-                </ul>
-                <div className="mt-2 flex justify-end">
-                  <button onClick={handleClearAll} disabled={!maps.length} className="text-xs rounded border border-white/20 px-2 py-1 hover:bg-white/10 disabled:opacity-50">
-                    {pathname?.startsWith('/ar') ? 'مسح الكل' : 'Clear all'}
-                  </button>
-                </div>
-              </div>
-            ) : null}
-          </div>
+
         </div>
         <div className="ml-2 flex-1 hidden md:flex">
           <label className="relative w-full" aria-label="Search">
@@ -199,37 +153,7 @@ export default function Header() {
               {pathname?.startsWith('/ar') ? 'الغرف' : 'Rooms'}
             </Link>
             
-            {/* Calls Section in Mobile */}
-            <div className="border-t border-white/10 pt-2 mt-2">
-              <div className="text-xs uppercase tracking-wide text-white/70 px-3 pb-1">
-                {pathname?.startsWith('/ar') ? 'مكالماتك' : 'Your Calls'}
-              </div>
-              {maps.length > 0 ? (
-                <ul className="space-y-1 max-h-40 overflow-auto">
-                  {maps.map((m) => (
-                    <li key={m.id} className="flex items-center justify-between gap-2 rounded px-3 py-2 hover:bg-white/10">
-                      <Link href={`/maps/${m.id}`} className="truncate text-sm flex-1" onClick={() => setMobileMenuOpen(false)}>{m.title}</Link>
-                      <button
-                        onClick={async (e) => { e.preventDefault(); e.stopPropagation(); try { await deleteMap(m.id); setMaps((prev) => prev.filter((x) => x.id !== m.id)) } catch {} }}
-                        className="text-xs rounded border border-white/20 px-2 py-0.5 hover:bg-white/10"
-                        title={pathname?.startsWith('/ar') ? 'حذف المكالمة' : 'Delete call'}
-                      >
-                        {pathname?.startsWith('/ar') ? 'مسح' : 'Clear'}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <div className="px-3 py-2 text-sm text-white/60">
-                  {pathname?.startsWith('/ar') ? 'لا توجد مكالمات' : 'No calls'}
-                </div>
-              )}
-              {maps.length > 0 && (
-                <button onClick={handleClearAll} className="text-xs rounded border border-white/20 px-3 py-1 mt-2 ml-3 hover:bg-white/10">
-                  {pathname?.startsWith('/ar') ? 'مسح الكل' : 'Clear all'}
-                </button>
-              )}
-            </div>
+
 
             {/* Search in Mobile */}
             <div className="pt-2">

@@ -3,16 +3,12 @@
 import { useCallback, useEffect, useRef, useState } from "react"
 import { createVoiceSession, finishVoiceSession, sendVoiceChunk, streamVoiceSession, transcribeVoice } from "../lib/api"
 
-type DeltaNode = { id: string; label: string; position: { x: number; y: number }; type?: 'root' | 'thought' | 'action' | 'emotion' };
-type DeltaEdge = { id: string; source: string; target: string; label?: string };
-
 type VoiceRecorderProps = {
   onTranscribed: (text: string) => void
   mode?: 'single' | 'live'
-  onDelta?: (delta: { nodes?: DeltaNode[]; edges?: DeltaEdge[] }) => void
 }
 
-export default function VoiceRecorder({ onTranscribed, mode = 'single', onDelta }: VoiceRecorderProps) {
+export default function VoiceRecorder({ onTranscribed, mode = 'single' }: VoiceRecorderProps) {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null)
   const mediaStreamRef = useRef<MediaStream | null>(null)
   const chunksRef = useRef<BlobPart[]>([])
@@ -59,10 +55,6 @@ export default function VoiceRecorder({ onTranscribed, mode = 'single', onDelta 
               const data = evt.data as { chunks?: Array<{ text: string }> };
               const text = (data?.chunks?.map((c) => c.text) || []).join(' ')
               if (text) onTranscribed(text)
-            }
-            if (evt.type === 'delta') {
-              const data = evt.data as { delta?: { nodes?: DeltaNode[]; edges?: DeltaEdge[] } };
-              onDelta?.(data?.delta || {})
             }
           })
         }
