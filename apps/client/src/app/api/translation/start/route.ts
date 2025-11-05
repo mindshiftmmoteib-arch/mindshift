@@ -141,18 +141,20 @@ export async function POST(req: NextRequest) {
 
     console.log(`[Agent Dispatch] Request received for room: ${roomName}, languages: ${lang1} <-> ${lang2}`);
 
-    // Check if an agent is already active in the room
-    const hasExistingAgent = await checkRoomForAgent(roomName);
-    if (hasExistingAgent) {
-      console.log(`[Agent Dispatch] Agent already active in room ${roomName}, preventing duplicate dispatch`);
-      return NextResponse.json(
-        {
-          error: "An agent is already active in this room. Please wait for it to connect or disconnect first.",
-          dispatchId: null,
-        },
-        { status: 409 } // 409 Conflict
-      );
-    }
+    // Note: We're temporarily disabling duplicate check to allow agent to join
+    // The agent worker should handle being dispatched multiple times gracefully
+    // TODO: Re-enable with better detection logic after verifying agent joins work
+    // const hasExistingAgent = await checkRoomForAgent(roomName);
+    // if (hasExistingAgent) {
+    //   console.log(`[Agent Dispatch] Agent already active in room ${roomName}, preventing duplicate dispatch`);
+    //   return NextResponse.json(
+    //     {
+    //       error: "An agent is already active in this room. Please wait for it to connect or disconnect first.",
+    //       dispatchId: null,
+    //     },
+    //     { status: 409 } // 409 Conflict
+    //   );
+    // }
 
     // This metadata string is what our Python agent will receive
     const metadata = `${lang1},${lang2}`;
@@ -163,7 +165,13 @@ export async function POST(req: NextRequest) {
     // Dispatch agent job using LiveKit's Agents API
     // The endpoint format is: /twirp/livekit.AgentService/StartAgentJob
     try {
-      console.log(`[Agent Dispatch] Attempting to dispatch agent to room ${roomName}`);
+      console.log(`[Agent Dispatch] Attempting to dispatch agent to room ${roomName} with agent_name: interpreter-agent`);
+      console.log(`[Agent Dispatch] Request payload:`, JSON.stringify({
+        room: roomName,
+        agent_name: "interpreter-agent",
+        metadata: metadata,
+      }, null, 2));
+      
       const dispatch = await makeLiveKitRequest(
         "/twirp/livekit.AgentService/StartAgentJob",
         "POST",
@@ -174,37 +182,46 @@ export async function POST(req: NextRequest) {
         }
       );
 
-      console.log(`[Agent Dispatch] LiveKit API call successful, extracting dispatch ID`);
+      console.log(`[Agent Dispatch] LiveKit API call successful, response:`, JSON.stringify(dispatch, null, 2));
       const dispatchId = extractDispatchId(dispatch);
 
       // If we couldn't extract an ID, use the fallback
       const finalDispatchId = dispatchId !== 'unknown' ? dispatchId : fallbackDispatchId;
 
       console.log(`[Agent Dispatch] Agent dispatched successfully with ID: ${finalDispatchId}`);
+      console.log(`[Agent Dispatch] Agent worker should now receive the job and join room ${roomName}`);
 
       return NextResponse.json(
         {
-          message: 'Agent dispatched',
+          message: 'Agent dispatched successfully',
           dispatchId: finalDispatchId,
+          roomName: roomName,
         },
         { status: 200 }
       );
     } catch (apiError) {
-      // If the API endpoint doesn't exist, fall back to a simpler approach
-      // The agent worker should be listening and will connect when it detects the room
+      // Log the full error for debugging
       const errorMessage = apiError instanceof Error ? apiError.message : String(apiError);
-      console.warn(`[Agent Dispatch] LiveKit AgentService API not available, using fallback:`, errorMessage);
+      const errorStack = apiError instanceof Error ? apiError.stack : undefined;
+      console.error(`[Agent Dispatch] LiveKit AgentService API error:`, errorMessage);
+      if (errorStack) {
+        console.error(`[Agent Dispatch] Error stack:`, errorStack);
+      }
       
+      // If the API endpoint fails, we still return success but log the error
+      // The agent worker might be listening for jobs via other means
+      console.log(`[Agent Dispatch] API call failed, but agent worker may still receive job via other mechanism`);
       console.log(`[Agent Dispatch] Using fallback dispatch ID: ${fallbackDispatchId}`);
       
       return NextResponse.json(
         {
-          message: 'Agent dispatch initiated',
+          message: 'Agent dispatch initiated (fallback mode)',
           dispatchId: fallbackDispatchId,
           roomName: roomName,
           agentName: 'interpreter-agent',
           metadata: metadata,
-          note: 'Agent worker will connect automatically when it detects the room',
+          warning: 'LiveKit API call failed, but agent worker may still connect',
+          note: 'Check agent worker logs on Render to verify job reception',
         },
         { status: 200 }
       );
