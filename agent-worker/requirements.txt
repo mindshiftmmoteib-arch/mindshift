@@ -1,7 +1,3 @@
-livekit-agents
-livekit-plugins-cartesia
-google-generativeai
+livekit-agents[google,cartesia,deepgram,silero]
 python-dotenv
-livekit-plugins-deepgram
-livekit-plugins-silero
 
