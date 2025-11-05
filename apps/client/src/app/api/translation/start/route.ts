@@ -53,6 +53,78 @@ async function makeLiveKitRequest(
   return response.json();
 }
 
+// Helper function to check if an agent is already in the room
+async function checkRoomForAgent(roomName: string): Promise<boolean> {
+  try {
+    const roomInfo = await makeLiveKitRequest(
+      `/twirp/livekit.RoomService/ListRooms`,
+      "POST",
+      { names: [roomName] }
+    );
+    
+    // Log the room info structure for debugging
+    console.log(`[Agent Dispatch] Room info for ${roomName}:`, JSON.stringify(roomInfo, null, 2));
+    
+    // Check if room exists and has participants
+    if (roomInfo && typeof roomInfo === 'object') {
+      const rooms = (roomInfo as { rooms?: unknown[] }).rooms || [];
+      if (rooms.length > 0) {
+        const room = rooms[0] as { num_participants?: number; participants?: unknown[] };
+        const participants = room.participants || [];
+        
+        // Check if any participant is an agent (agents typically have specific identity patterns)
+        const hasAgent = participants.some((p: unknown) => {
+          const participant = p as { identity?: string; name?: string };
+          const identity = participant.identity || '';
+          const name = participant.name || '';
+          // Check if identity or name contains agent indicators
+          return identity.includes('agent') || name.includes('agent') || 
+                 identity.includes('interpreter') || name.includes('interpreter');
+        });
+        
+        console.log(`[Agent Dispatch] Room ${roomName} has ${participants.length} participants, agent detected: ${hasAgent}`);
+        return hasAgent;
+      }
+    }
+    return false;
+  } catch (error) {
+    console.warn(`[Agent Dispatch] Could not check room for existing agent:`, error);
+    // If we can't check, allow the dispatch (fail open)
+    return false;
+  }
+}
+
+// Helper function to extract dispatch ID from various response formats
+function extractDispatchId(response: unknown): string {
+  if (!response || typeof response !== 'object') {
+    console.log('[Agent Dispatch] Response is not an object:', typeof response);
+    return 'unknown';
+  }
+
+  const resp = response as Record<string, unknown>;
+  
+  // Log the full response structure for debugging
+  console.log('[Agent Dispatch] LiveKit API response structure:', JSON.stringify(resp, null, 2));
+  
+  // Try various possible field names
+  const possibleFields = ['job_id', 'id', 'jobId', 'jobId', 'dispatch_id', 'dispatchId'];
+  
+  for (const field of possibleFields) {
+    if (field in resp && resp[field] != null) {
+      const value = String(resp[field]);
+      console.log(`[Agent Dispatch] Found dispatch ID in field '${field}': ${value}`);
+      return value;
+    }
+  }
+  
+  // If no standard field found, check all keys
+  const keys = Object.keys(resp);
+  console.log(`[Agent Dispatch] Response keys: ${keys.join(', ')}`);
+  console.log(`[Agent Dispatch] Could not find dispatch ID in response, using generated ID`);
+  
+  return 'unknown';
+}
+
 export const runtime = "nodejs";
 export const revalidate = 0;
 
@@ -67,12 +139,31 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    console.log(`[Agent Dispatch] Request received for room: ${roomName}, languages: ${lang1} <-> ${lang2}`);
+
+    // Check if an agent is already active in the room
+    const hasExistingAgent = await checkRoomForAgent(roomName);
+    if (hasExistingAgent) {
+      console.log(`[Agent Dispatch] Agent already active in room ${roomName}, preventing duplicate dispatch`);
+      return NextResponse.json(
+        {
+          error: "An agent is already active in this room. Please wait for it to connect or disconnect first.",
+          dispatchId: null,
+        },
+        { status: 409 } // 409 Conflict
+      );
+    }
+
     // This metadata string is what our Python agent will receive
     const metadata = `${lang1},${lang2}`;
+
+    // Generate a fallback dispatch ID in case the API doesn't return one
+    const fallbackDispatchId = `dispatch-${Date.now()}-${crypto.randomBytes(4).toString('hex')}`;
 
     // Dispatch agent job using LiveKit's Agents API
     // The endpoint format is: /twirp/livekit.AgentService/StartAgentJob
     try {
+      console.log(`[Agent Dispatch] Attempting to dispatch agent to room ${roomName}`);
       const dispatch = await makeLiveKitRequest(
         "/twirp/livekit.AgentService/StartAgentJob",
         "POST",
@@ -83,28 +174,33 @@ export async function POST(req: NextRequest) {
         }
       );
 
-      const dispatchId = 
-        (typeof dispatch === 'object' && dispatch !== null && 'job_id' in dispatch) 
-          ? String(dispatch.job_id) 
-          : (typeof dispatch === 'object' && dispatch !== null && 'id' in dispatch)
-          ? String(dispatch.id)
-          : 'unknown';
+      console.log(`[Agent Dispatch] LiveKit API call successful, extracting dispatch ID`);
+      const dispatchId = extractDispatchId(dispatch);
+
+      // If we couldn't extract an ID, use the fallback
+      const finalDispatchId = dispatchId !== 'unknown' ? dispatchId : fallbackDispatchId;
+
+      console.log(`[Agent Dispatch] Agent dispatched successfully with ID: ${finalDispatchId}`);
 
       return NextResponse.json(
         {
           message: 'Agent dispatched',
-          dispatchId: dispatchId,
+          dispatchId: finalDispatchId,
         },
         { status: 200 }
       );
     } catch (apiError) {
       // If the API endpoint doesn't exist, fall back to a simpler approach
       // The agent worker should be listening and will connect when it detects the room
-      console.warn("LiveKit AgentService API not available, using fallback:", apiError);
+      const errorMessage = apiError instanceof Error ? apiError.message : String(apiError);
+      console.warn(`[Agent Dispatch] LiveKit AgentService API not available, using fallback:`, errorMessage);
+      
+      console.log(`[Agent Dispatch] Using fallback dispatch ID: ${fallbackDispatchId}`);
       
       return NextResponse.json(
         {
           message: 'Agent dispatch initiated',
+          dispatchId: fallbackDispatchId,
           roomName: roomName,
           agentName: 'interpreter-agent',
           metadata: metadata,
@@ -114,9 +210,12 @@ export async function POST(req: NextRequest) {
       );
     }
   } catch (error) {
-    console.error("Error dispatching agent:", error);
+    console.error("[Agent Dispatch] Error dispatching agent:", error);
     const errorMessage = (error instanceof Error) ? error.message : "Failed to dispatch agent";
-    return NextResponse.json({ error: errorMessage }, { status: 500 });
+    return NextResponse.json({ 
+      error: errorMessage,
+      dispatchId: null 
+    }, { status: 500 });
   }
 }
 

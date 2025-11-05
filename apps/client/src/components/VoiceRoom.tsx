@@ -313,13 +313,28 @@ function TranslationControls({ roomName }: { roomName: string }) {
         }),
       });
 
+      const result = await response.json();
+
       if (!response.ok) {
-        const err = await response.json();
-        throw new Error(err.error || "Failed to start agent");
+        // Handle conflict (409) - agent already exists
+        if (response.status === 409) {
+          setAgentError(result.error || "An agent is already active in this room. Please wait for it to connect.");
+        } else {
+          setAgentError(result.error || "Failed to start agent");
+        }
+        return;
       }
 
-      const result = await response.json();
-      setAgentStatus(`Agent dispatched (ID: ${result.dispatchId}). It will join shortly.`);
+      // Handle successful dispatch
+      if (result.dispatchId) {
+        setAgentStatus(`Agent dispatched (ID: ${result.dispatchId}). It will join shortly.`);
+      } else if (result.message) {
+        // Fallback message if dispatchId is missing but we have a message
+        setAgentStatus(`${result.message}. The agent will join shortly.`);
+      } else {
+        // Ultimate fallback
+        setAgentStatus(`Agent dispatch initiated. It will join shortly.`);
+      }
     } catch (err: unknown) {
       setAgentError(err instanceof Error ? err.message : "An unknown error occurred");
     } finally {
