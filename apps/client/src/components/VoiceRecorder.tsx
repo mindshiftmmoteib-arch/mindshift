@@ -114,7 +114,7 @@ export default function VoiceRecorder({ onTranscribed, mode = 'single' }: VoiceR
       setError(e instanceof Error ? e.message : "Failed to access microphone")
       setStatus("Idle")
     }
-  }, [onTranscribed])
+  }, [onTranscribed, mode])
 
   const handlePause = useCallback(() => {
     const mr = mediaRecorderRef.current

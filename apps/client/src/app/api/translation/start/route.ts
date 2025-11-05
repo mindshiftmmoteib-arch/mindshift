@@ -18,8 +18,8 @@ if (!livekitUrl || !apiKey || !apiSecret) {
 async function makeLiveKitRequest(
   endpoint: string,
   method: string = "GET",
-  body?: any
-): Promise<any> {
+  body?: Record<string, unknown>
+): Promise<Record<string, unknown>> {
   const url = `${livekitUrl.replace(/\/$/, "")}${endpoint}`;
   
   // Generate authorization header using LiveKit's auth format
@@ -83,10 +83,17 @@ export async function POST(req: NextRequest) {
         }
       );
 
+      const dispatchId = 
+        (typeof dispatch === 'object' && dispatch !== null && 'job_id' in dispatch) 
+          ? String(dispatch.job_id) 
+          : (typeof dispatch === 'object' && dispatch !== null && 'id' in dispatch)
+          ? String(dispatch.id)
+          : 'unknown';
+
       return NextResponse.json(
         {
           message: 'Agent dispatched',
-          dispatchId: dispatch.job_id || dispatch.id || 'unknown',
+          dispatchId: dispatchId,
         },
         { status: 200 }
       );
