@@ -187,9 +187,11 @@ export async function POST(req: NextRequest) {
         console.log(`[Agent Dispatch] SDK dispatch successful:`, JSON.stringify(dispatch, null, 2));
         
         // Extract dispatch ID - AgentDispatch may have different property names
-        const dispatchId = (dispatch as Record<string, unknown>).jobId 
-          || (dispatch as Record<string, unknown>).id 
-          || (dispatch as Record<string, unknown>).job_id
+        // Cast through unknown first to avoid TypeScript errors
+        const dispatchObj = dispatch as unknown as Record<string, unknown>;
+        const dispatchId = dispatchObj.jobId 
+          || dispatchObj.id 
+          || dispatchObj.job_id
           || fallbackDispatchId;
         
         console.log(`[Agent Dispatch] Agent dispatched successfully with ID: ${dispatchId}`);
