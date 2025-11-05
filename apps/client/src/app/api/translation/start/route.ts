@@ -7,21 +7,37 @@ import { AgentDispatchClient } from "livekit-server-sdk";
 // Your VoiceRoom.tsx uses NEXT_PUBLIC_LIVEKIT_URL (client-side),
 // this route needs the server-side LIVEKIT_URL.
 
-const livekitUrl = process.env.LIVEKIT_URL!;
-const apiKey = process.env.LIVEKIT_API_KEY!;
-const apiSecret = process.env.LIVEKIT_API_SECRET!;
+// Get environment variables with proper validation
+function getLiveKitConfig() {
+  const livekitUrl = process.env.LIVEKIT_URL;
+  const apiKey = process.env.LIVEKIT_API_KEY;
+  const apiSecret = process.env.LIVEKIT_API_SECRET;
 
-if (!livekitUrl || !apiKey || !apiSecret) {
-  console.error("LiveKit server credentials not fully configured.");
+  if (!livekitUrl || !apiKey || !apiSecret) {
+    console.error("LiveKit server credentials not fully configured:", {
+      hasUrl: !!livekitUrl,
+      hasKey: !!apiKey,
+      hasSecret: !!apiSecret,
+    });
+    return null;
+  }
+
+  return { livekitUrl, apiKey, apiSecret };
 }
 
 // Helper function to make authenticated LiveKit API requests
 async function makeLiveKitRequest(
   endpoint: string,
   method: string = "GET",
-  body?: Record<string, unknown>
+  body?: Record<string, unknown>,
+  config?: { livekitUrl: string; apiKey: string; apiSecret: string }
 ): Promise<Record<string, unknown>> {
-  const url = `${livekitUrl.replace(/\/$/, "")}${endpoint}`;
+  const cfg = config || getLiveKitConfig();
+  if (!cfg) {
+    throw new Error("LiveKit configuration is missing. Please set LIVEKIT_URL, LIVEKIT_API_KEY, and LIVEKIT_API_SECRET environment variables.");
+  }
+
+  const url = `${cfg.livekitUrl.replace(/\/$/, "")}${endpoint}`;
   
   // Generate authorization header using LiveKit's auth format
   const timestamp = Date.now();
@@ -31,11 +47,11 @@ async function makeLiveKitRequest(
   
   const toSign = `${timestamp}${nonce}${bodyHash}`;
   const signature = crypto
-    .createHmac("sha256", apiSecret)
+    .createHmac("sha256", cfg.apiSecret)
     .update(toSign)
     .digest("base64");
   
-  const authHeader = `${apiKey}:${signature}:${timestamp}:${nonce}`;
+  const authHeader = `${cfg.apiKey}:${signature}:${timestamp}:${nonce}`;
 
   const response = await fetch(url, {
     method,
@@ -135,6 +151,19 @@ export const revalidate = 0;
 
 export async function POST(req: NextRequest) {
   try {
+    // Validate environment variables first
+    const config = getLiveKitConfig();
+    if (!config) {
+      console.error("[Agent Dispatch] LiveKit configuration missing");
+      return NextResponse.json(
+        { 
+          error: "LiveKit server is not configured. Please set LIVEKIT_URL, LIVEKIT_API_KEY, and LIVEKIT_API_SECRET environment variables.",
+          dispatchId: null,
+        },
+        { status: 500 }
+      );
+    }
+
     const { roomName, lang1, lang2 } = await req.json();
 
     if (!roomName || !lang1 || !lang2) {
@@ -174,9 +203,9 @@ export async function POST(req: NextRequest) {
       // Try using LiveKit SDK AgentDispatchClient first
       try {
         const dispatchClient = new AgentDispatchClient(
-          livekitUrl.replace(/\/$/, ""),
-          apiKey,
-          apiSecret
+          config.livekitUrl.replace(/\/$/, ""),
+          config.apiKey,
+          config.apiSecret
         );
         
         console.log(`[Agent Dispatch] Using AgentDispatchClient from SDK`);
@@ -225,7 +254,8 @@ export async function POST(req: NextRequest) {
           room: roomName,
           agent_name: "interpreter-agent",
           metadata: metadata,
-        }
+        },
+        config
       );
 
       console.log(`[Agent Dispatch] LiveKit API call successful, response:`, JSON.stringify(dispatch, null, 2));
