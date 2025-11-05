@@ -87,10 +87,20 @@ async def entrypoint(ctx: agents.JobContext):
 
 if __name__ == "__main__":
     # This name MUST match the agent_name in your API route
-    agents.cli.run_app(
-        agents.WorkerOptions(
+    import sys
+    
+    # If 'start' command is provided, use direct start (production mode)
+    # Otherwise, use CLI (for dev mode)
+    if len(sys.argv) > 1 and sys.argv[1] == "start":
+        agents.start(
             entrypoint_fnc=entrypoint,
             agent_name="interpreter-agent"
         )
-    )
+    else:
+        agents.cli.run_app(
+            agents.WorkerOptions(
+                entrypoint_fnc=entrypoint,
+                agent_name="interpreter-agent"
+            )
+        )
 
