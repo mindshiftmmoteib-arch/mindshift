@@ -97,6 +97,13 @@ async def entrypoint(ctx: agents.JobContext):
             raise ValueError(error_msg)
         logger.info("CARTESIA_API_KEY found")
 
+        deepgram_api_key = os.getenv("DEEPGRAM_API_KEY")
+        if not deepgram_api_key:
+            error_msg = "DEEPGRAM_API_KEY environment variable is required"
+            logger.error(error_msg)
+            raise ValueError(error_msg)
+        logger.info("DEEPGRAM_API_KEY found")
+
         # Initialize TTS
         logger.info("Initializing Cartesia TTS...")
         tts = cartesia.TTS(voice="f786b574-daa5-4673-aa0c-cbe3e8534c02", api_key=cartesia_api_key)
@@ -110,7 +117,7 @@ async def entrypoint(ctx: agents.JobContext):
         logger.info("  - VAD: Silero")
         
         session = AgentSession(
-            stt=deepgram.STT(model="nova-2", language=None), # Let Deepgram detect
+            stt=deepgram.STT(model="nova-2", language=None, api_key=deepgram_api_key), # Let Deepgram detect
             llm=google.LLM(model="gemini-2.0-flash-exp", api_key=google_api_key),
             tts=tts,
             vad=silero.VAD.load(),
@@ -158,13 +165,20 @@ if __name__ == "__main__":
     livekit_url = os.getenv("LIVEKIT_URL")
     livekit_key = os.getenv("LIVEKIT_API_KEY")
     livekit_secret = os.getenv("LIVEKIT_API_SECRET")
+    google_key = os.getenv("GOOGLE_API_KEY")
+    cartesia_key = os.getenv("CARTESIA_API_KEY")
+    deepgram_key = os.getenv("DEEPGRAM_API_KEY")
     
     logger.info(f"LIVEKIT_URL: {'SET' if livekit_url else 'MISSING'}")
     logger.info(f"LIVEKIT_API_KEY: {'SET' if livekit_key else 'MISSING'}")
     logger.info(f"LIVEKIT_API_SECRET: {'SET' if livekit_secret else 'MISSING'}")
+    logger.info(f"GOOGLE_API_KEY: {'SET' if google_key else 'MISSING'}")
+    logger.info(f"CARTESIA_API_KEY: {'SET' if cartesia_key else 'MISSING'}")
+    logger.info(f"DEEPGRAM_API_KEY: {'SET' if deepgram_key else 'MISSING'}")
     
-    if not all([livekit_url, livekit_key, livekit_secret]):
-        logger.error("Missing required LiveKit environment variables!")
+    if not all([livekit_url, livekit_key, livekit_secret, google_key, cartesia_key, deepgram_key]):
+        logger.error("Missing required environment variables!")
+        logger.error("Required: LIVEKIT_URL, LIVEKIT_API_KEY, LIVEKIT_API_SECRET, GOOGLE_API_KEY, CARTESIA_API_KEY, DEEPGRAM_API_KEY")
         sys.exit(1)
     
     logger.info("Environment variables check passed")
