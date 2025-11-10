@@ -15,9 +15,18 @@ This is the Python agent worker that handles real-time voice translation.
    LIVEKIT_URL=wss://travcoies-9h1ntokz.livekit.cloud
    LIVEKIT_API_KEY=APIJ3p9EvfKirbr
    LIVEKIT_API_SECRET=VZMtypNewY4UVjb6DWEyqFz3GdDjfzhmVTneLfQcARVA
-   GOOGLE_API_KEY=AIzaSyAj-SGLoneB87aHsSx3tUPwKWhdASJnenw
-   CARTESIA_API_KEY=sk_car_6mCMiBXvFnPMo9VskKP937
-DEEPGRAM_API_KEY=sk_your_deepgram_key
+   DEEPGRAM_API_KEY=sk_your_deepgram_key
+   DEEPL_API_KEY=YOUR_DEEPL_KEY:fx
+   # Optional override (defaults to https://api-free.deepl.com/v2/translate)
+   # DEEPL_API_URL=https://api.deepl.com/v2/translate
+   ELEVENLABS_API_KEY=sk_your_elevenlabs_key
+   ELEVENLABS_VOICE_ID=f786b574-daa5-4673-aa0c-cbe3e8534c02
+   # Optional voice tuning
+   # ELEVENLABS_MODEL_ID=eleven_multilingual_v2
+   # ELEVENLABS_STABILITY=0.5
+   # ELEVENLABS_SIMILARITY=0.75
+   # ELEVENLABS_STYLE=0.0
+   # ELEVENLABS_SPEAKER_BOOST=true
    ```
 
 3. **Run the agent**:
@@ -37,8 +46,8 @@ See `../AGENT_WORKER_DEPLOYMENT.md` for detailed deployment instructions.
 4. The agent joins the room and listens for speech
 5. When someone speaks, it:
    - Transcribes speech (Deepgram)
-   - Translates text (Google Gemini)
-   - Converts translation to speech (Cartesia TTS)
+   - Translates text (DeepL)
+   - Converts translation to speech (ElevenLabs TTS)
    - Plays the translated audio back to the room
 
 ## Agent Name
