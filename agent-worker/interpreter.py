@@ -13,6 +13,7 @@ from livekit.agents import Agent, AgentSession
 from livekit.plugins import deepgram, silero, google, cartesia
 import os
 import sys
+import textwrap
 
 # Load environment variables
 load_dotenv(".env")
@@ -41,10 +42,9 @@ class Interpreter(Agent):
     """
 
     def __init__(self, lang1_code: str, lang2_code: str):
-        super().__init__()
         lang1_name = LANGUAGE_MAP.get(lang1_code, lang1_code)
         lang2_name = LANGUAGE_MAP.get(lang2_code, lang2_code)
-        self.update_instructions(f"""
+        instructions = textwrap.dedent(f"""
             You are an expert, real-time AI language interpreter.
             Your sole function is to translate between {lang1_name} ({lang1_code}) and {lang2_name} ({lang2_code}).
 
@@ -54,7 +54,8 @@ class Interpreter(Agent):
             - Do not add any commentary, greetings, or explanations.
             - If the input is not in {lang1_name} or {lang2_name}, do not produce any output. Remain silent.
             - Keep translations concise and natural for spoken conversation.
-        """)
+        """).strip()
+        super().__init__(instructions=instructions)
 
 async def entrypoint(ctx: agents.JobContext):
     """Entry point for the agent."""
