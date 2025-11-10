@@ -17,6 +17,7 @@ This is the Python agent worker that handles real-time voice translation.
    LIVEKIT_API_SECRET=VZMtypNewY4UVjb6DWEyqFz3GdDjfzhmVTneLfQcARVA
    GOOGLE_API_KEY=AIzaSyAj-SGLoneB87aHsSx3tUPwKWhdASJnenw
    CARTESIA_API_KEY=sk_car_6mCMiBXvFnPMo9VskKP937
+DEEPGRAM_API_KEY=sk_your_deepgram_key
    ```
 
 3. **Run the agent**:

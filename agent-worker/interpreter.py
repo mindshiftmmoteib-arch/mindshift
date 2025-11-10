@@ -105,13 +105,25 @@ async def entrypoint(ctx: agents.JobContext):
 
         # Initialize session components
         logger.info("Initializing agent session components...")
-        logger.info("  - STT: Deepgram (nova-2)")
+        deepgram_api_key = os.getenv("DEEPGRAM_API_KEY")
+        if not deepgram_api_key:
+            error_msg = "DEEPGRAM_API_KEY environment variable is required"
+            logger.error(error_msg)
+            raise ValueError(error_msg)
+        logger.info("DEEPGRAM_API_KEY found")
+
+        stt_model = "nova-3"
+        stt_language = "multi"
+        logger.info(f"Initializing Deepgram STT... (model={stt_model}, language={stt_language})")
+        stt = deepgram.STT(model=stt_model, language=stt_language, api_key=deepgram_api_key)
+        logger.info("Deepgram STT initialized successfully")
+        logger.info("  - STT: Deepgram (nova-3, multi-language)")
         logger.info("  - LLM: Google Gemini 2.0 Flash")
         logger.info("  - TTS: Cartesia")
         logger.info("  - VAD: Silero")
         
         session = AgentSession(
-            stt=deepgram.STT(model="nova-2", language=None), # Let Deepgram detect
+            stt=stt,
             llm=google.LLM(model="gemini-2.0-flash-exp", api_key=google_api_key),
             tts=tts,
             vad=silero.VAD.load(),
