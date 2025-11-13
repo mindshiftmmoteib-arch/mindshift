@@ -6,6 +6,7 @@ import { useEffect, useState } from "react"
 
 export default function CoachPage() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isFlipped, setIsFlipped] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
@@ -146,14 +147,39 @@ export default function CoachPage() {
         </ul>
         </div>
 
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">Background</h2>
-          <p className="text-base text-slate-700 leading-relaxed">
-            Based in Saudi Arabia, Moteib bin Nasser AlAjmi brings a unique perspective that blends international best practices with deep cultural understanding of the Middle Eastern business environment.
-          </p>
-          <p className="text-base text-slate-700 leading-relaxed">
-            His work spans private and public sectors, helping leaders at all levels—from emerging managers to C-suite executives—develop the skills and mindset needed for sustainable success.
-          </p>
+        <div 
+          className="rounded-xl perspective-1000 cursor-pointer h-[500px] sm:h-[600px]"
+          onClick={() => setIsFlipped(!isFlipped)}
+        >
+          <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+            {/* Front of card - certif.png */}
+            <div className="absolute w-full h-full backface-hidden rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">Certifications</h2>
+              <div className="relative w-full h-[calc(100%-80px)]">
+                <Image
+                  src="/certif.png"
+                  alt="Leadership Certificate - Developing Emerging Leaders"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-sm text-slate-500 text-center mt-4">Click to see more</p>
+            </div>
+            
+            {/* Back of card - 2.png */}
+            <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6">
+              <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">Certifications</h2>
+              <div className="relative w-full h-[calc(100%-80px)]">
+                <Image
+                  src="/2.png"
+                  alt="Strategy Certificate - Strategy in the Age of Digital Disruption"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <p className="text-sm text-slate-500 text-center mt-4">Click to flip back</p>
+            </div>
+          </div>
         </div>
       </section>
 
