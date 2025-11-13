@@ -47,13 +47,13 @@ export default function Header() {
           className="shrink-0 flex items-center gap-3 text-base md:text-lg font-bold select-none text-[inherit] hover:text-white/90 transition-all group"
           aria-label="MINDSHIFT ARABIA Home"
         >
-          <span className="relative h-10 w-10 md:h-12 md:w-12 rounded-full bg-white/10 p-1.5 group-hover:bg-white/20 transition-all group-hover:scale-105">
+          <span className="relative h-10 w-10 md:h-12 md:w-12 rounded-full bg-white/10 p-1.5 group-hover:bg-white/20 transition-all group-hover:scale-105 overflow-hidden">
             <Image
               src="/logo.png"
               alt="MINDSHIFT ARABIA logo"
               fill
               sizes="(max-width: 768px) 40px, 48px"
-              className="object-contain drop-shadow-lg"
+              className="object-contain drop-shadow-lg rounded-full"
               priority
             />
           </span>
@@ -121,20 +121,6 @@ export default function Header() {
               <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
             </svg>
             <span className="hidden md:inline font-semibold">{pathname?.startsWith('/ar') ? 'EN' : 'عربي'}</span>
-          </Link>
-          
-          {/* Book Button with premium styling */}
-          <Link
-            href="https://calendly.com/coach_moteib"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-lg px-4 md:px-5 py-2 text-xs md:text-sm font-bold text-[#1A5345] bg-gradient-to-r from-[#B99B56] to-[#c5a566] shadow-lg hover:shadow-xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[#B99B56] focus:ring-offset-2 focus:ring-offset-[#1A5345] transition-all active:scale-95"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden className="drop-shadow">
-              <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/>
-            </svg>
-            <span className="hidden sm:inline drop-shadow">{pathname?.startsWith('/ar') ? 'احجز استشارة' : 'Book Now'}</span>
-            <span className="sm:hidden drop-shadow">{pathname?.startsWith('/ar') ? 'احجز' : 'Book'}</span>
           </Link>
         </div>
       </div>

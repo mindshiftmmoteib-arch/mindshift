@@ -17,16 +17,6 @@ export default function Footer() {
               {isArabic ? 'مساعدة المديرين على بناء حياة متوازنة' : 'Helping managers build balanced lives'}
             </p>
           </div>
-          <div className="pt-2 border-t border-white/20 w-full max-w-md">
-            <Link 
-              href="https://www.sitedz.store" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-sm text-white/90 hover:text-white underline decoration-white/40 hover:decoration-white transition-colors"
-            >
-              www.sitedz.store
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
