@@ -2,7 +2,7 @@
 
 ## Supabase Authentication & Room Management Configuration
 
-This document summarizes all the configuration changes made to integrate Supabase authentication and room management into your TRAVoices application.
+This document summarizes all the configuration changes made to integrate Supabase authentication and room management into your MINDSHIFT ARABIA application.
 
 ---
 

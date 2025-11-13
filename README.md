@@ -1,24 +1,32 @@
-# TRAVoices
+# MINDSHIFT ARABIA
 
-AI-powered real-time voice translation platform. Speak naturally in any language and be understood instantly with voice cloning technology.
+Leadership coaching platform helping managers build balanced lives. Coach Moteib Alajmi provides personalized coaching programs for sustainable leadership development in Saudi Arabia.
 
-- Vision: Connecting voices. Uniting worlds.
-- Core: Real-time voice translation with context-aware accuracy and voice cloning.
+- Vision: Helping managers build balanced lives
+- Core: Professional leadership coaching with proven methodologies
 
 ## Key Features
 
-- 🎙 AI Voice Translation - Real-time speech translation between any languages
-- 🧠 Voice Cloning - Preserve tone, rhythm, and emotional nuance
-- 🌐 Multi-Language Support - English, Arabic, Mandarin, French, and more
-- 🔊 Real-Time Voice Rooms - High-quality audio collaboration
-- 💬 Cultural Context Engine - Understand idioms and meaning, not just words
+- ⚖️ Balanced Leadership - Sustainable approaches to professional and personal success
+- 🎯 Personalized Coaching - Tailored programs for your unique goals and challenges
+- 📈 Three Program Tiers - 6, 9, and 12-month coaching journeys
+- 🇸🇦 Cultural Context - Deep understanding of Saudi Arabian business environment
+- 🤝 Proven Methodology - Evidence-based practices with practical application
 
 ## Language Support
 
-TRAVoices is available in multiple languages:
+MINDSHIFT ARABIA is available in multiple languages:
 - **English**: Main homepage at `/`
 - **Arabic (العربية)**: Arabic homepage at `/ar` with full RTL support and Arabic typography
 - Use the language switcher in the header to toggle between languages
+
+## Coaching Programs
+
+- **6-Month Program**: Foundation building and core leadership skills
+- **9-Month Program**: Advanced development and team dynamics
+- **12-Month Program**: Complete transformation and strategic leadership
+
+Visit `/programs` (English) or `/ar/programs` (Arabic) for detailed program information.
 
 ## Key Documentation
 

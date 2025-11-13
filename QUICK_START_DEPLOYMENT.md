@@ -4,7 +4,7 @@
 
 ### Step 1: Push to GitHub (2 minutes)
 ```bash
-cd "D:\Travoices com\Travoicephase3"
+cd "D:\MindshiftArabia\Phase3"
 git init
 git add .
 git commit -m "Initial commit with agent worker"

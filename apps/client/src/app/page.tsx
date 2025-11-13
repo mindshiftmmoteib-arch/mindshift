@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 export default function LandingPage() {
@@ -11,60 +12,58 @@ export default function LandingPage() {
   }, [])
 
   return (
-    <main className="space-y-16 relative">
-      {/* Landing background: light cream with gold dot grid */}
-      <div
-        aria-hidden
-        className="fixed inset-0 -z-10"
-        style={{
-          backgroundColor: '#fff8dc',
-          backgroundImage: 'radial-gradient(rgba(201,162,39,0.6) 1px, transparent 1px)',
-          backgroundSize: '36px 36px',
-          backgroundPosition: '0 0',
-        }}
-      />
+    <main className="space-y-12 sm:space-y-16 relative">
+      {/* Hero Banner */}
+      <section className="relative w-full rounded-xl overflow-hidden shadow-lg">
+        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72">
+          <Image
+            src="/banner-hero.jpg"
+            alt="MINDSHIFT ARABIA - Balance Minds. Build Futures. Leadership Coach"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+      </section>
+
       {/* Hero */}
       <section className="text-center space-y-4 sm:space-y-6 text-slate-900 px-2">
         <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Speak Naturally.</span>{' '}
-          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Be Understood Instantly</span>{' '}
-          <span className={`inline-block transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>— with TRAVoices</span>
+          <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Build Balanced Leadership</span>{' '}
+          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>with Coach Moteib Alajmi</span>
         </h1>
         <p className={`mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 transition-all duration-1000 delay-700 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          An AI-powered real-time translation platform that lets people speak any language — and be heard in their own cloned voice.
-          Bridge conversations across cultures, languages, and accents — all in real time.
+          Helping managers build balanced lives through proven leadership coaching programs.
+          Transform your management style, strengthen your team, and achieve lasting success.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
           <Link
-            href="/rooms"
+            href="https://calendly.com/coach_moteib"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-1000 delay-900 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
-            aria-label="Start talking"
+            aria-label="Book Your Call"
             style={{
               backgroundSize: '200% 100%',
               animation: isVisible ? 'balayageRTL 3s ease-in-out infinite' : 'none'
             }}
           >
-            <span className="relative z-10">Start Talking</span>
+            <span className="relative z-10">Book Your Call</span>
           </Link>
           <Link
-            href="/rooms"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border border-white/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden transition-all duration-1000 delay-1000 ${
+            href="/programs"
+            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all duration-300 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
-            aria-label="Create a room"
-            style={{
-              background: 'linear-gradient(90deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.05) 100%)',
-              backgroundSize: '200% 100%',
-              animation: isVisible ? 'balayageLTR 3s ease-in-out infinite' : 'none'
-            }}
+            aria-label="View Programs"
           >
-            <span className="relative z-10">Create Room</span>
+            <span className="relative z-10">View Programs</span>
           </Link>
         </div>
         <style jsx>{`
@@ -87,106 +86,246 @@ export default function LandingPage() {
         `}</style>
       </section>
 
-      {/* Who we are */}
-      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
-        <div className="md:col-span-2 rounded-xl border border-black/10 bg-white/70 backdrop-blur p-4 sm:p-6 space-y-3 sm:space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Who We Are</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            We are <span className="font-semibold">Saudi Innovators</span> — 
-            Our mission is to make language barriers disappear — enabling anyone to speak naturally and be understood perfectly.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            TRAVoices was born from the belief that true connection happens when technology feels invisible — when people can talk, understand, and collaborate effortlessly, no matter their language.
+      {/* Coaching Programs */}
+      <section className="space-y-6">
+        <div className="text-center space-y-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">Choose Your Coaching Journey</h2>
+          <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto">
+            Tailored leadership programs designed to meet you where you are and take you where you want to be.
           </p>
         </div>
-        <div className="rounded-xl border border-black/10 bg-white/70 backdrop-blur p-4 sm:p-6">
-          <h3 className="text-base sm:text-lg font-semibold text-slate-900">Leadership</h3>
-          <p className="mt-2 text-sm sm:text-base text-slate-800">
-            <span className="font-semibold">نــاصـر آل خازم</span>, CEO
+        <div className="grid md:grid-cols-3 gap-4 sm:gap-6">
+          {/* 6-Month Program */}
+          <div className="rounded-xl border-2 border-slate-200 bg-white shadow-sm p-4 sm:p-6 space-y-4 hover:border-amber-500 transition-colors">
+            <div className="space-y-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900">6-Month Program</h3>
+              <p className="text-sm text-slate-600">Foundation Building</p>
+            </div>
+            <ul className="space-y-2 text-sm text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Core leadership fundamentals</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Self-awareness development</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Communication skills mastery</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Work-life balance strategies</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Bi-weekly coaching sessions</span>
+              </li>
+            </ul>
+            <Link
+              href="https://calendly.com/coach_moteib"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center rounded-md px-4 py-2.5 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all"
+            >
+              Get Started
+            </Link>
+          </div>
+
+          {/* 9-Month Program */}
+          <div className="rounded-xl border-2 border-amber-500 bg-white shadow-lg p-4 sm:p-6 space-y-4 relative">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-slate-900 text-xs font-bold px-3 py-1 rounded-full">
+              MOST POPULAR
+            </div>
+            <div className="space-y-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900">9-Month Program</h3>
+              <p className="text-sm text-slate-600">Advanced Development</p>
+            </div>
+            <ul className="space-y-2 text-sm text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Everything in 6-month program</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Advanced team dynamics</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Conflict resolution mastery</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Strategic decision-making</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Weekly coaching sessions</span>
+              </li>
+            </ul>
+            <Link
+              href="https://calendly.com/coach_moteib"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center rounded-md px-4 py-2.5 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all"
+            >
+              Get Started
+            </Link>
+          </div>
+
+          {/* 12-Month Program */}
+          <div className="rounded-xl border-2 border-slate-200 bg-white shadow-sm p-4 sm:p-6 space-y-4 hover:border-amber-500 transition-colors">
+            <div className="space-y-2">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900">12-Month Program</h3>
+              <p className="text-sm text-slate-600">Complete Transformation</p>
+            </div>
+            <ul className="space-y-2 text-sm text-slate-700">
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Everything in 9-month program</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Strategic leadership mastery</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Organizational change management</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Executive presence development</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-amber-500 mt-0.5">✓</span>
+                <span>Priority coaching & support</span>
+              </li>
+            </ul>
+            <Link
+              href="https://calendly.com/coach_moteib"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full text-center rounded-md px-4 py-2.5 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all"
+            >
+              Get Started
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* About Coach */}
+      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+        <div className="md:col-span-2 rounded-xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Meet Your Coach</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            <span className="font-semibold">Coach Moteib Alajmi</span> is a certified leadership coach from Saudi Arabia with a proven track record of helping managers transform their leadership style and build balanced, successful lives.
           </p>
-          <p className="mt-1 text-xs sm:text-sm text-slate-700">
-            Founder and visionary leading the mission to create the world&apos;s most human-sounding AI translator.
-            Focused on real-time communication, speech synthesis, and contextual understanding that feels truly natural.
+          <p className="text-sm sm:text-base text-slate-700">
+            With years of experience in leadership development and a deep understanding of the challenges facing modern managers, Coach Moteib combines practical strategies with personalized guidance to help you achieve sustainable growth.
+          </p>
+          <Link
+            href="/coach"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+          >
+            Learn more about Coach Moteib
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 flex flex-col justify-center items-center">
+          <div className="relative w-32 h-32 mb-3">
+            <Image
+              src="/logo.png"
+              alt="MINDSHIFT ARABIA Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <p className="text-center text-sm text-slate-700 italic">
+            Balance Minds. Build Futures.
           </p>
         </div>
       </section>
 
-      {/* What is the SaaS */}
-      <section className="rounded-xl border border-black/10 bg-white/70 backdrop-blur p-4 sm:p-6 space-y-3 sm:space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">What is TRAVoices?</h2>
+      {/* What You'll Achieve */}
+      <section className="rounded-xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">What You&apos;ll Achieve</h2>
         <p className="text-sm sm:text-base text-slate-800">
-          TRAVoices is a Software-as-a-Service platform that performs live multilingual voice translation with near-perfect context understanding and voice cloning.
-          Speak once — and be heard in another language, with your own voice.
+          Our coaching programs are designed to create lasting transformation in your leadership and life.
         </p>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-800">
-          <li className="rounded-lg border border-black/10 bg-white/70 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">🎙 AI Voice Translation</span>
-            Translate speech live between any two languages with context-aware accuracy.
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">🎯 Clear Direction</span>
+            Develop a clear vision for your leadership journey and career path.
           </li>
-          <li className="rounded-lg border border-black/10 bg-white/70 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">🧠 Voice Cloning</span>
-            Preserve tone, rhythm, and emotional nuance of the original speaker.
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">⚖️ Work-Life Balance</span>
+            Build sustainable habits that support both professional and personal success.
           </li>
-          <li className="rounded-lg border border-black/10 bg-white/70 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">🌐 Multi-Language Support</span>
-            From English and Arabic to Mandarin, French, and beyond — TRAVoices adapts to every accent and dialect.
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">👥 Team Excellence</span>
+            Learn to inspire, motivate, and develop high-performing teams.
           </li>
-          <li className="rounded-lg border border-black/10 bg-white/70 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">🔊 Real-Time Calls</span>
-            Integrate into apps, video calls, or telephony systems for instant, two-way translation.
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">💡 Strategic Thinking</span>
+            Enhance your decision-making and strategic planning capabilities.
           </li>
-          <li className="rounded-lg border border-black/10 bg-white/70 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">💬 Cultural Context Engine</span>
-            Understand idioms and meaning, not just words.
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">🗣️ Confident Communication</span>
+            Master the art of clear, impactful communication at all levels.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">🚀 Lasting Growth</span>
+            Create sustainable change that continues long after coaching ends.
           </li>
         </ul>
       </section>
 
-      {/* What we do and aim */}
+      {/* Coaching Approach */}
       <section className="grid md:grid-cols-2 gap-4 sm:gap-6">
-        <div className="rounded-xl border border-black/10 bg-white/70 backdrop-blur p-4 sm:p-6 space-y-2 sm:space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">What We Do</h2>
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Our Approach</h2>
           <p className="text-sm sm:text-base text-slate-800">
-            We help individuals, businesses, and governments communicate across borders as if they spoke the same language.
-            From international meetings to customer service and education — TRAVoices makes global communication natural and human.
+            Every coaching journey is personalized to your unique challenges, goals, and context. We combine proven frameworks with practical tools that you can apply immediately in your leadership role.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            Through one-on-one sessions, actionable assignments, and ongoing support, you&apos;ll develop the skills and mindset needed to lead with confidence and balance.
           </p>
         </div>
-        <div className="rounded-xl border border-black/10 bg-white/70 backdrop-blur p-4 sm:p-6 space-y-2 sm:space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Our Vision</h2>
+        <div className="rounded-xl border border-slate-200 bg-white shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Who It&apos;s For</h2>
           <p className="text-sm sm:text-base text-slate-800">
-            To become the first universal voice translation layer for the world —
-            one that enables every person to speak in their voice, in any language, with clarity and emotion intact.
+            Our programs are ideal for managers and leaders who are committed to personal growth and want to create positive change in their teams and organizations.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            Whether you&apos;re a new manager or an experienced executive, our coaching will meet you where you are and help you reach your full potential.
           </p>
         </div>
       </section>
 
       {/* Final CTA */}
       <section className="text-center space-y-3 sm:space-y-4 text-slate-900 px-2">
-        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">Ready to Speak Without Limits?</h2>
-        <p className="text-sm sm:text-base text-slate-700">Experience a new era of voice communication. Start your first live translation in seconds.</p>
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">Ready to Transform Your Leadership?</h2>
+        <p className="text-sm sm:text-base text-slate-700">Book your complimentary consultation call today and discover how coaching can help you build the balanced, successful life you deserve.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
-            href="/rooms"
+            href="https://calendly.com/coach_moteib"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30"
-            aria-label="Try TRAVoices Now"
+            aria-label="Book Your Call Today"
           >
-            Try TRAVoices Now
+            Book Your Call Today
           </Link>
           <Link
-            href="/rooms"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border border-white/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/30"
-            aria-label="Create Room"
+            href="/programs"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-colors"
+            aria-label="View All Programs"
           >
-            Create Room
+            View All Programs
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="text-center space-y-2 text-slate-700 pb-6 sm:pb-8">
-        <p className="text-xs sm:text-sm">© 2025 TRAVoices — Built with passion</p>
-        <p className="text-xs sm:text-sm italic">Connecting voices. Uniting worlds.</p>
-      </footer>
     </main>
   )
 }

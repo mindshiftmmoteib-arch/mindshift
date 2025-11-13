@@ -139,7 +139,7 @@ Check these files for detailed information:
 
 ## You're All Set! 🎉
 
-Your TRAVoices app is now configured with:
+Your MINDSHIFT ARABIA app is now configured with:
 - ✅ Full authentication system
 - ✅ Room management
 - ✅ Voice chat capabilities

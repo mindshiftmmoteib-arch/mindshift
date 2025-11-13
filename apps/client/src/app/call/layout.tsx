@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "TRAVoices Voice Call",
-  description: "Premium voice calling with TRAVoices",
+  title: "MINDSHIFT ARABIA Voice Call",
+  description: "Premium voice calling with MINDSHIFT ARABIA",
 };
 
 export default function CallLayout({

@@ -2,7 +2,7 @@
 
 ## Overview
 
-Successfully implemented a real-time two-way voice translation feature for the TRAVoices application using LiveKit agents. The system consists of three main components: a Next.js API route, frontend UI components, and a Python agent worker deployed on Render.
+Successfully implemented a real-time two-way voice translation feature for the MINDSHIFT ARABIA application using LiveKit agents. The system consists of three main components: a Next.js API route, frontend UI components, and a Python agent worker deployed on Render.
 
 ---
 

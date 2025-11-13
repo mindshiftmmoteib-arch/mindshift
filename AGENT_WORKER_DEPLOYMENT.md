@@ -16,7 +16,7 @@ This guide will help you deploy the translation agent worker for FREE and make y
 
 ### Step 1: Create/Update Local Environment File
 
-1. Navigate to your project root: `D:\Travoices com\Travoicephase3`
+1. Navigate to your project root: `D:\MindshiftArabia\Phase3`
 
 2. Create or update `apps/client/.env.local` file with these variables:
 
@@ -50,7 +50,7 @@ NEXT_PUBLIC_LIVEKIT_URL=wss://travcoies-9h1ntokz.livekit.cloud
 
 1. **Initialize Git** (if not already done):
    ```bash
-   cd "D:\Travoices com\Travoicephase3"
+   cd "D:\MindshiftArabia\Phase3"
    git init
    git add .
    git commit -m "Add translation agent worker"

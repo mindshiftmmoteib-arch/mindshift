@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TRAVoices - تَحدَّث بطبيعتك",
-  description: "منصّة ترجمة صوتية فورية مدعومة بالذكاء الاصطناعي",
+  title: "MINDSHIFT ARABIA | تدريب القيادة",
+  description: "تدريب قيادي لإدارة متوازنة. المدرب مطيب العجمي يساعد المديرين على بناء حياة متوازنة من خلال برامج تدريبية مُثبتة في المملكة العربية السعودية.",
 };
 
 export default function ArabicLayout({

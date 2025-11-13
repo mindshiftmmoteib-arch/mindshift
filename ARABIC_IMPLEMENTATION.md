@@ -1,7 +1,7 @@
 # Arabic Version Implementation
 
 ## Overview
-Complete Arabic (العربية) localization for TRAVoices platform with full RTL support and Arabic typography.
+Complete Arabic (العربية) localization for MINDSHIFT ARABIA platform with full RTL support and Arabic typography.
 
 ## Implemented Pages
 
@@ -67,7 +67,7 @@ Complete Arabic (العربية) localization for TRAVoices platform with full R
 **Features:**
 - Minimal layout that passes through children to avoid duplicate headers
 - Arabic-specific metadata:
-  - Title: "TRAVoices - تَحدَّث بطبيعتك"
+  - Title: "MINDSHIFT ARABIA - تَحدَّث بطبيعتك"
   - Description: "منصّة ترجمة صوتية فورية مدعومة بالذكاء الاصطناعي"
 
 ## Navigation & UI
