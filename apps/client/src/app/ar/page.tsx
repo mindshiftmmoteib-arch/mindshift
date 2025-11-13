@@ -48,7 +48,7 @@ export default function ArabicLandingPage() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
           <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>بناء قيادة متوازنة</span>{' '}
-          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>مع المدرب متعب العجمي</span>
+          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>مع المدرب متعب بن ناصر العجمي</span>
         </h1>
         <p className={`mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 transition-all duration-1000 delay-700 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -235,16 +235,16 @@ export default function ArabicLandingPage() {
         <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">تعرّف على مدربك</h2>
           <p className="text-sm sm:text-base text-slate-800">
-            <span className="font-semibold">المدرب متعب العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
+            <span className="font-semibold">المدرب متعب بن ناصر العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
           </p>
           <p className="text-sm sm:text-base text-slate-700">
-            بفضل سنوات من الخبرة في تطوير القيادة وفهم عميق للتحديات التي تواجه المديرين المعاصرين، يجمع المدرب متعب بين الاستراتيجيات العملية والإرشاد الشخصي لمساعدتك على تحقيق نمو مستدام.
+            بفضل سنوات من الخبرة في تطوير القيادة وفهم عميق للتحديات التي تواجه المديرين المعاصرين، يجمع المدرب متعب بن ناصر بين الاستراتيجيات العملية والإرشاد الشخصي لمساعدتك على تحقيق نمو مستدام.
           </p>
           <Link
             href="/ar/coach"
             className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
           >
-            اعرف المزيد عن المدرب متعب
+            اعرف المزيد عن المدرب متعب بن ناصر
             <span aria-hidden="true">←</span>
           </Link>
         </div>

@@ -35,13 +35,13 @@ export default function CoachPageArabic() {
           <div className="relative w-40 h-40 mx-auto mb-6">
             <Image
               src="/logo.png"
-              alt="المدرب متعب العجمي"
+              alt="المدرب متعب بن ناصر العجمي"
               fill
               className="object-contain"
             />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
-            المدرب متعب العجمي
+            المدرب متعب بن ناصر العجمي
           </h1>
           <p className="text-lg sm:text-xl text-amber-600 font-semibold mt-3">
             مدرب قيادة معتمد | المملكة العربية السعودية
@@ -52,15 +52,15 @@ export default function CoachPageArabic() {
       {/* About Section */}
       <section className="grid md:grid-cols-2 gap-8">
         <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">عن المدرب متعب</h2>
+          <h2 className="text-2xl font-bold text-slate-900">عن المدرب متعب بن ناصر</h2>
           <p className="text-base text-slate-800 leading-relaxed">
-            المدرب متعب العجمي هو مدرب قيادة معتمد من المملكة العربية السعودية، مكرس لمساعدة المديرين والقادة على بناء حياة متوازنة وناجحة مع تحقيق أهدافهم المهنية.
+            المدرب متعب بن ناصر العجمي هو مدرب قيادة معتمد من المملكة العربية السعودية، مكرس لمساعدة المديرين والقادة على بناء حياة متوازنة وناجحة مع تحقيق أهدافهم المهنية.
           </p>
           <p className="text-base text-slate-700 leading-relaxed">
-            بفهم عميق للتحديات الفريدة التي تواجه القادة في عالم اليوم سريع الوتيرة، يجلب المدرب متعب نهجًا عمليًا موجهًا نحو النتائج في تطوير القيادة. تتمحور فلسفة تدريبه حول خلق تغيير مستدام يمتد إلى ما وراء النجاح المهني ليشمل الإشباع الشخصي والرفاهية.
+            بفهم عميق للتحديات الفريدة التي تواجه القادة في عالم اليوم سريع الوتيرة، يجلب المدرب متعب بن ناصر نهجًا عمليًا موجهًا نحو النتائج في تطوير القيادة. تتمحور فلسفة تدريبه حول خلق تغيير مستدام يمتد إلى ما وراء النجاح المهني ليشمل الإشباع الشخصي والرفاهية.
           </p>
           <p className="text-base text-slate-700 leading-relaxed">
-            بعد عمله مع مديرين عبر مختلف الصناعات والمستويات التنظيمية، طور المدرب متعب منهجية مثبتة تجمع بين الممارسات القائمة على الأدلة والرؤى ذات الصلة الثقافية المصممة خصيصًا للسياق السعودي والشرق أوسطي.
+            بعد عمله مع مديرين عبر مختلف الصناعات والمستويات التنظيمية، طور المدرب متعب بن ناصر منهجية مثبتة تجمع بين الممارسات القائمة على الأدلة والرؤى ذات الصلة الثقافية المصممة خصيصًا للسياق السعودي والشرق أوسطي.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export default function CoachPageArabic() {
             &ldquo;القيادة الحقيقية ليست في تحقيق المزيد على حساب رفاهيتك. إنها في بناء حياة متوازنة حيث يتعايش التميز المهني والإشباع الشخصي.&rdquo;
           </p>
           <p className="text-base text-slate-700 leading-relaxed">
-            يؤمن المدرب متعب بأن القادة الأكثر فعالية هم أولئك الذين:
+            يؤمن المدرب متعب بن ناصر بأن القادة الأكثر فعالية هم أولئك الذين:
           </p>
           <ul className="space-y-2 text-base text-slate-700">
             <li className="flex items-start gap-2">
@@ -163,7 +163,7 @@ export default function CoachPageArabic() {
         <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
           <h2 className="text-2xl font-bold text-slate-900">الخلفية</h2>
           <p className="text-base text-slate-700 leading-relaxed">
-            يقع المدرب متعب في المملكة العربية السعودية، ويجلب منظورًا فريدًا يمزج بين أفضل الممارسات الدولية والفهم الثقافي العميق لبيئة الأعمال في الشرق الأوسط.
+            يقع المدرب متعب بن ناصر في المملكة العربية السعودية، ويجلب منظورًا فريدًا يمزج بين أفضل الممارسات الدولية والفهم الثقافي العميق لبيئة الأعمال في الشرق الأوسط.
           </p>
           <p className="text-base text-slate-700 leading-relaxed">
             يمتد عمله عبر القطاعين الخاص والعام، حيث يساعد القادة على جميع المستويات—من المديرين الناشئين إلى المسؤولين التنفيذيين—على تطوير المهارات والعقلية اللازمة للنجاح المستدام.
@@ -177,7 +177,7 @@ export default function CoachPageArabic() {
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-[#f8f4ed] rounded-lg p-6 shadow-sm space-y-3">
             <p className="text-base text-slate-700 italic leading-relaxed">
-              &ldquo;العمل مع المدرب متعب غيّر ليس فقط أسلوب قيادتي، بل نهجي الكامل للحياة. أنا الآن أكثر فعالية في العمل بينما لدي في الواقع وقت لعائلتي.&rdquo;
+              &ldquo;العمل مع المدرب متعب بن ناصر غيّر ليس فقط أسلوب قيادتي، بل نهجي الكامل للحياة. أنا الآن أكثر فعالية في العمل بينما لدي في الواقع وقت لعائلتي.&rdquo;
             </p>
             <p className="text-sm text-slate-600 font-semibold">
               — مدير أول، قطاع التكنولوجيا
@@ -185,7 +185,7 @@ export default function CoachPageArabic() {
           </div>
           <div className="bg-[#f8f4ed] rounded-lg p-6 shadow-sm space-y-3">
             <p className="text-base text-slate-700 italic leading-relaxed">
-              &ldquo;أطر التفكير الاستراتيجي التي تعلمتها كانت لا تقدر بثمن. ساعدني المدرب متعب على تطوير الوضوح والثقة في اتخاذ قراراتي.&rdquo;
+              &ldquo;أطر التفكير الاستراتيجي التي تعلمتها كانت لا تقدر بثمن. ساعدني المدرب متعب بن ناصر على تطوير الوضوح والثقة في اتخاذ قراراتي.&rdquo;
             </p>
             <p className="text-sm text-slate-600 font-semibold">
               — مدير، منظمة الرعاية الصحية
@@ -201,7 +201,7 @@ export default function CoachPageArabic() {
           </div>
           <div className="bg-[#f8f4ed] rounded-lg p-6 shadow-sm space-y-3">
             <p className="text-base text-slate-700 italic leading-relaxed">
-              &ldquo;رؤى المدرب متعب في الموازنة بين التوقعات الثقافية وممارسات القيادة الحديثة كانت بالضبط ما احتجته.&rdquo;
+              &ldquo;رؤى المدرب متعب بن ناصر في الموازنة بين التوقعات الثقافية وممارسات القيادة الحديثة كانت بالضبط ما احتجته.&rdquo;
             </p>
             <p className="text-sm text-slate-600 font-semibold">
               — تنفيذي، القطاع العام
