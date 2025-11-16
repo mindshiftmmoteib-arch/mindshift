@@ -13,58 +13,67 @@ export default function LandingPage() {
 
   return (
     <main className="space-y-12 sm:space-y-16 relative">
-      {/* Hero Banner */}
-      <section className="relative w-full rounded-xl overflow-hidden shadow-lg">
-        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72">
-          <Image
-            src="/banner-hero.jpg"
-            alt="MINDSHIFT ARABIA - Balance Minds. Build Futures. Leadership Coach"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
-      </section>
-
       {/* Hero */}
-      <section className="text-center space-y-4 sm:space-y-6 text-slate-900 px-2">
-        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 transition-all duration-1000 ease-out ${
+      <section className="flex flex-col md:flex-row items-center gap-6 sm:gap-10 text-slate-900 px-2">
+        <div className={`flex-1 w-full transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+        }`}>
+          <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto aspect-square rounded-full overflow-hidden border-4 border-amber-500/70 shadow-2xl">
+            <Image
+              src="/Design sans titre (1).png"
+              alt="Coach Moteib bin Nasser AlAjmi portrait"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+        <div className={`flex-1 space-y-4 sm:space-y-6 text-center md:text-left transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Build Balanced Leadership</span>{' '}
-          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>with Moteib bin Nasser AlAjmi</span>
-        </h1>
-        <p className={`mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 transition-all duration-1000 delay-700 ease-out ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          Helping managers build balanced lives through proven leadership coaching programs.
-          Transform your management style, strengthen your team, and achieve lasting success.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <Link
-            href="https://calendly.com/coach_moteib"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-1000 delay-900 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}
-            aria-label="Book Your Call"
-            style={{
-              backgroundSize: '200% 100%',
-              animation: isVisible ? 'balayageRTL 3s ease-in-out infinite' : 'none'
-            }}
+          <div
+            className="inline-flex flex-col items-center text-center px-4 py-3 rounded-2xl border border-[#B99B56]/50 text-white shadow-lg"
+            style={{ background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)' }}
           >
-            <span className="relative z-10">Book Your Call</span>
-          </Link>
-          <Link
-            href="/programs"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all duration-300 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}
-            aria-label="View Programs"
-          >
-            <span className="relative z-10">View Programs</span>
-          </Link>
+            <span className="text-base sm:text-lg font-semibold uppercase tracking-widest">Marshall Goldsmith</span>
+            <span className="text-xs sm:text-sm font-medium text-[#F7E4B0] tracking-[0.35em]">
+              — CERTIFIED EXECUTIVE COACH —
+            </span>
+          </div>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900">
+            <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>Build Balanced Leadership</span>{' '}
+            <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>with Moteib bin Nasser AlAjmi</span>
+          </h1>
+          <p className="mx-auto md:mx-0 max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 md:px-0">
+            Helping managers build balanced lives through proven leadership coaching programs.
+            Transform your management style, strengthen your team, and achieve lasting success.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center md:items-start justify-center md:justify-start gap-3 pt-2">
+            <Link
+              href="https://calendly.com/coach_moteib"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-1000 delay-900 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}
+              aria-label="Book Your Call"
+              style={{
+                backgroundSize: '200% 100%',
+                animation: isVisible ? 'balayageRTL 3s ease-in-out infinite' : 'none'
+              }}
+            >
+              <span className="relative z-10">Book Your Call</span>
+            </Link>
+            <Link
+              href="/programs"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all duration-300 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}
+              aria-label="View Programs"
+            >
+              <span className="relative z-10">View Programs</span>
+            </Link>
+          </div>
         </div>
         <style jsx>{`
           @keyframes balayageRTL {
@@ -210,6 +219,24 @@ export default function LandingPage() {
             >
               Get Started
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Certification Banner */}
+      <section
+        className="relative -mx-3 sm:-mx-4 md:-mx-6 px-3 sm:px-4 md:px-6"
+        aria-label="Marshall Goldsmith Certification Banner"
+      >
+        <div
+          className="w-full border border-[#B99B56]/40 shadow-lg text-center text-white tracking-wide"
+          style={{ background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)' }}
+        >
+          <div className="px-4 py-4 sm:py-5 space-y-1">
+            <p className="text-lg sm:text-xl font-semibold uppercase">Marshall Goldsmith</p>
+            <p className="text-xs sm:text-sm font-medium text-[#F7E4B0] tracking-[0.45em]">
+              — CERTIFIED EXECUTIVE COACH —
+            </p>
           </div>
         </div>
       </section>

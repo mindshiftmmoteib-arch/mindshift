@@ -29,58 +29,69 @@ export default function ArabicLandingPage() {
 
   return (
     <main className={`space-y-12 sm:space-y-16 relative ${tajawal.className}`}>
-      {/* Hero Banner */}
-      <section className="relative w-full rounded-xl overflow-hidden shadow-lg">
-        <div className="relative w-full h-48 sm:h-56 md:h-64 lg:h-72">
-          <Image
-            src="/banner-hero.jpg"
-            alt="MINDSHIFT ARABIA - توازن العقول. بناء المستقبل. مدرب القيادة"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-        </div>
-      </section>
-
       {/* Hero */}
-      <section className="text-center space-y-4 sm:space-y-6 text-slate-900 px-2">
-        <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 transition-all duration-1000 ease-out ${
+      <section className="flex flex-col md:flex-row items-center gap-6 sm:gap-10 text-slate-900 px-2">
+        <div className={`flex-1 w-full transition-all duration-1000 ease-out ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+        }`}>
+          <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto aspect-square rounded-full overflow-hidden border-4 border-amber-500/70 shadow-2xl">
+            <Image
+              src="/Design sans titre (1).png"
+              alt="صورة الكوتش متعب بن ناصر العجمي"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+        <div className={`flex-1 space-y-4 sm:space-y-6 text-center md:text-right transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>بناء قيادة متوازنة</span>{' '}
-          <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>مع المدرب متعب بن ناصر العجمي</span>
-        </h1>
-        <p className={`mx-auto max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 transition-all duration-1000 delay-700 ease-out ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}>
-          مساعدة المديرين على بناء حياة متوازنة من خلال برامج تدريب قيادية مُثبتة.
-          حوّل أسلوب إدارتك، قوّي فريقك، واحصل على نجاح دائم.
-        </p>
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-          <Link
-            href="https://calendly.com/coach_moteib"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-1000 delay-900 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
-            }`}
-            aria-label="احجز مكالمتك"
-            style={{
-              backgroundSize: '200% 100%',
-              animation: isVisible ? 'balayageLTR 3s ease-in-out infinite' : 'none'
-            }}
+          <div
+            className="inline-flex flex-col items-center text-center px-4 py-3 rounded-2xl border border-[#B99B56]/50 text-white shadow-lg"
+            style={{ background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)' }}
           >
-            <span className="relative z-10">احجز مكالمتك</span>
-          </Link>
-          <Link
-            href="/ar/programs"
-            className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all duration-300 ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
-            }`}
-            aria-label="عرض البرامج"
-          >
-            <span className="relative z-10">عرض البرامج</span>
-          </Link>
+            <span className="text-base sm:text-lg font-semibold uppercase tracking-widest">Marshall Goldsmith</span>
+            <span className="text-xs sm:text-sm font-medium text-[#F7E4B0] tracking-[0.35em]">
+              — CERTIFIED EXECUTIVE COACH —
+            </span>
+          </div>
+          <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 transition-all duration-1000 ease-out ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <span className={`inline-block transition-all duration-700 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>بناء قيادة متوازنة</span>{' '}
+            <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>مع الكوتش متعب بن ناصر العجمي</span>
+          </h1>
+          <p className="mx-auto md:mx-0 max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 md:px-0">
+            مساعدة المديرين على بناء حياة متوازنة من خلال برامج تدريب قيادية مُثبتة.
+            حوّل أسلوب إدارتك، قوّي فريقك، واحصل على نجاح دائم.
+          </p>
+          <div className="flex flex-col sm:flex-row-reverse items-end justify-end gap-3 pt-2 w-full">
+            <Link
+              href="https://calendly.com/coach_moteib"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30 relative overflow-hidden bg-gradient-to-r from-yellow-400 to-amber-500 transition-all duration-1000 delay-900 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+              }`}
+              aria-label="احجز مكالمتك"
+              style={{
+                backgroundSize: '200% 100%',
+                animation: isVisible ? 'balayageLTR 3s ease-in-out infinite' : 'none'
+              }}
+            >
+              <span className="relative z-10">احجز مكالمتك</span>
+            </Link>
+            <Link
+              href="/ar/programs"
+              className={`w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-all duration-300 ${
+                isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+              }`}
+              aria-label="عرض البرامج"
+            >
+              <span className="relative z-10">عرض البرامج</span>
+            </Link>
+          </div>
         </div>
         <style jsx>{`
           @keyframes balayageRTL {
@@ -230,21 +241,39 @@ export default function ArabicLandingPage() {
         </div>
       </section>
 
+      {/* Certification Banner */}
+      <section
+        className="relative -mx-3 sm:-mx-4 md:-mx-6 px-3 sm:px-4 md:px-6"
+        aria-label="Marshall Goldsmith Certification Banner"
+      >
+        <div
+          className="w-full border border-[#B99B56]/40 shadow-lg text-center text-white tracking-wide"
+          style={{ background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)' }}
+        >
+          <div className="px-4 py-4 sm:py-5 space-y-1">
+            <p className="text-lg sm:text-xl font-semibold uppercase">Marshall Goldsmith</p>
+            <p className="text-xs sm:text-sm font-medium text-[#F7E4B0] tracking-[0.45em]">
+              — CERTIFIED EXECUTIVE COACH —
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* About Coach */}
       <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
         <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">تعرّف على مدربك</h2>
           <p className="text-sm sm:text-base text-slate-800">
-            <span className="font-semibold">المدرب متعب بن ناصر العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
+            <span className="font-semibold">الكوتش متعب بن ناصر العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
           </p>
           <p className="text-sm sm:text-base text-slate-700">
-            بفضل سنوات من الخبرة في تطوير القيادة وفهم عميق للتحديات التي تواجه المديرين المعاصرين، يجمع المدرب متعب بن ناصر بين الاستراتيجيات العملية والإرشاد الشخصي لمساعدتك على تحقيق نمو مستدام.
+            بفضل سنوات من الخبرة في تطوير القيادة وفهم عميق للتحديات التي تواجه المديرين المعاصرين، يجمع الكوتش متعب بن ناصر بين الاستراتيجيات العملية والإرشاد الشخصي لمساعدتك على تحقيق نمو مستدام.
           </p>
           <Link
             href="/ar/coach"
             className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
           >
-            اعرف المزيد عن المدرب متعب بن ناصر
+            اعرف المزيد عن الكوتش متعب بن ناصر
             <span aria-hidden="true">←</span>
           </Link>
         </div>
