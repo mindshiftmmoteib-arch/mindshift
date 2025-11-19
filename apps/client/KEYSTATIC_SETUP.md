@@ -2,46 +2,65 @@
 
 This project uses Keystatic CMS for managing blog articles with bilingual support (English and Arabic).
 
-## Local Development
+## ⚠️ CRITICAL: You Must Run Local Setup First!
 
-In development, Keystatic uses local file storage. Simply access the CMS at:
-```
-http://localhost:3000/keystatic
-```
+**Do NOT manually create a GitHub OAuth App!** Keystatic has its own GitHub App creation flow that must be used.
+
+## Local Development & GitHub App Creation
+
+1. **Run the project locally:**
+   ```bash
+   cd apps/client
+   npm run dev
+   ```
+
+2. **Visit Keystatic UI:**
+   ```
+   http://localhost:3000/keystatic
+   ```
+
+3. **Create GitHub App through Keystatic:**
+   - Click "Connect to GitHub" or "Create new GitHub App"
+   - Keystatic will guide you through the GitHub App creation process
+   - Authorize the app when prompted
+   - Select the `Moteib-` repository for access
+
+4. **Keystatic auto-generates `.env` file:**
+   - After authorization, check `apps/client/.env`
+   - It will contain all required variables:
+     ```
+     KEYSTATIC_GITHUB_CLIENT_ID=...
+     KEYSTATIC_GITHUB_CLIENT_SECRET=...
+     KEYSTATIC_SECRET=...
+     NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=...
+     ```
 
 ## Production Setup (Vercel + GitHub)
 
 For production, Keystatic needs to use GitHub as the storage backend since Vercel's filesystem is read-only.
 
-### Step 1: Create a GitHub OAuth App
+### Step 1: Use the Generated Environment Variables
 
-1. Go to [GitHub Developer Settings](https://github.com/settings/developers)
-2. Click "New OAuth App"
-3. Fill in the details:
-   - **Application name**: Moteib CMS (or any name you prefer)
-   - **Homepage URL**: `https://your-domain.vercel.app`
-   - **Authorization callback URL**: `https://your-domain.vercel.app/api/keystatic/github/oauth/callback`
-4. Click "Register application"
-5. Note down the **Client ID**
-6. Click "Generate a new client secret" and note it down
+After running the local setup above, you'll have a `.env` file. Copy ALL the variables from it.
 
 ### Step 2: Configure Vercel Environment Variables
 
-In your Vercel project settings, add these environment variables:
+1. Go to your Vercel project settings
+2. Navigate to Environment Variables
+3. Paste the entire contents of your `.env` file
+   - Vercel will parse it automatically
+4. **OR** add them individually:
+   ```
+   KEYSTATIC_GITHUB_CLIENT_ID=<from .env file>
+   KEYSTATIC_GITHUB_CLIENT_SECRET=<from .env file>
+   KEYSTATIC_SECRET=<from .env file>
+   NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG=<from .env file>
+   ```
 
-```
-KEYSTATIC_GITHUB_CLIENT_ID=Ov23lirU4vSdTWNP6Bgq
-KEYSTATIC_GITHUB_CLIENT_SECRET=<your_new_client_secret_from_github>
-KEYSTATIC_SECRET=4f85fb09f3cb5585be3e8dcaa1fa466dbf47888867b5d6296b3ce13586eadddc
-```
-
-**IMPORTANT NOTES:**
-- `KEYSTATIC_GITHUB_CLIENT_SECRET`: Use the newest client secret from your GitHub OAuth App
-- `KEYSTATIC_SECRET`: Must be alphanumeric only (no `/`, `+`, or `=` characters) to avoid URL encoding issues
-- Make sure your GitHub OAuth App callback URL is set to:
-```
-https://moteib-client.vercel.app/api/keystatic/github/oauth/callback
-```
+**CRITICAL NOTES:**
+- Use the EXACT values from the `.env` file Keystatic generated
+- Do NOT use manually created OAuth App credentials
+- The GitHub App created by Keystatic has specific permissions that a manual OAuth App doesn't have
 
 ### Step 3: Deploy
 
