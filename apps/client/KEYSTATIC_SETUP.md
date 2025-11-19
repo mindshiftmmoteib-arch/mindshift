@@ -30,14 +30,14 @@ For production, Keystatic needs to use GitHub as the storage backend since Verce
 In your Vercel project settings, add these environment variables:
 
 ```
-KEYSTATIC_GITHUB_CLIENT_ID=your_client_id_from_github
-KEYSTATIC_GITHUB_CLIENT_SECRET=your_client_secret_from_github
-KEYSTATIC_SECRET=generate_a_random_32_character_string
+KEYSTATIC_GITHUB_CLIENT_ID=Ov23lirU4vSdTWNP6Bgq
+KEYSTATIC_GITHUB_CLIENT_SECRET=513d9b1f6c2dfbead9fd7afae639ebc9e1b68893
+KEYSTATIC_SECRET=8AxMdV7iv4/+OPja+S4IH8oAdzX/ltuWyphTQGLIT2k=
 ```
 
-**To generate KEYSTATIC_SECRET**, run this in your terminal:
-```bash
-node -e "console.log(require('crypto').randomBytes(32).toString('base64'))"
+**Important:** Make sure your GitHub OAuth App callback URL is set to:
+```
+https://moteib-client.vercel.app/api/keystatic/github/oauth/callback
 ```
 
 ### Step 3: Deploy
