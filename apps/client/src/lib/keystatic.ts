@@ -1,8 +1,15 @@
 import { createReader } from '@keystatic/core/reader';
 import keystaticConfig from '../../keystatic.config';
+import path from 'path';
 
 // Create a reader instance
-export const reader = createReader(process.cwd(), keystaticConfig);
+// In production (Vercel), we need to point to the monorepo root where content/ is located
+// process.cwd() in production is /vercel/path0/apps/client, so we go up 2 levels
+const readerPath = process.env.NODE_ENV === 'production'
+  ? path.resolve(process.cwd(), '../../')
+  : process.cwd();
+
+export const reader = createReader(readerPath, keystaticConfig);
 
 // Helper to get all published articles
 export async function getPublishedArticles() {
