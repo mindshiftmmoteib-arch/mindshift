@@ -19,6 +19,11 @@ const handler = hasValidCredentials
       clientId: process.env.KEYSTATIC_GITHUB_CLIENT_ID!,
       clientSecret: process.env.KEYSTATIC_GITHUB_CLIENT_SECRET!,
       secret: process.env.KEYSTATIC_SECRET!,
+      ...(process.env.KEYSTATIC_GITHUB_APP_ID && {
+        appId: process.env.KEYSTATIC_GITHUB_APP_ID,
+        installationId: process.env.KEYSTATIC_GITHUB_INSTALLATION_ID!,
+        privateKey: process.env.KEYSTATIC_GITHUB_PRIVATE_KEY!,
+      }),
     })
   : null;
 
