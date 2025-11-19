@@ -136,38 +136,49 @@ export default function CoachPageArabic() {
         </div>
       </section>
 
-      {/* Credentials & Background */}
-      <section className="grid md:grid-cols-2 gap-6">
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">الشهادات والمؤهلات</h2>
-          <ul className="space-y-3 text-base text-slate-700">
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>مدرب محترف معتمد (CPC)</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>أخصائي تطوير القيادة</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>ممارس التطوير التنظيمي</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>شهادة التدريب التنفيذي</span>
-            </li>
-          </ul>
-        </div>
+      {/* Credentials & Certifications */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">الشهادات والمؤهلات</h2>
 
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">الخلفية</h2>
-          <p className="text-base text-slate-700 leading-relaxed">
-            يقع الكوتش متعب بن ناصر في المملكة العربية السعودية، ويجلب منظورًا فريدًا يمزج بين أفضل الممارسات الدولية والفهم الثقافي العميق لبيئة الأعمال في الشرق الأوسط.
-          </p>
-          <p className="text-base text-slate-700 leading-relaxed">
-            يمتد عمله عبر القطاعين الخاص والعام، حيث يساعد القادة على جميع المستويات—من المديرين الناشئين إلى المسؤولين التنفيذيين—على تطوير المهارات والعقلية اللازمة للنجاح المستدام.
-          </p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Certificate 1 - Stakeholder Centered Coaching (Best) */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 text-center">التدريب المتمركز حول أصحاب المصلحة</h3>
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/1.png"
+                alt="شهادة التدريب المتمركز حول أصحاب المصلحة"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Certificate 2 - INSEAD Essentials of Coaching */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 text-center">أساسيات التدريب</h3>
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/2.png"
+                alt="شهادة أساسيات التدريب من إنسياد"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Certificate 3 - INSEAD Leading in a Transforming World */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 text-center">القيادة في عالم متحول</h3>
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/3.png"
+                alt="شهادة القيادة في عالم متحول من إنسياد"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
         </div>
       </section>
 

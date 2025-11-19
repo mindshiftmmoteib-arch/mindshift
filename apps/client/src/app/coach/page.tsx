@@ -123,61 +123,47 @@ export default function CoachPage() {
         </div>
       </section>
 
-      {/* Credentials & Background */}
-      <section className="grid md:grid-cols-2 gap-6">
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">Credentials & Certifications</h2>
-          <ul className="space-y-3 text-base text-slate-700">
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>Certified Professional Coach (CPC)</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>Leadership Development Specialist</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>Organizational Development Practitioner</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-amber-500 text-xl">✓</span>
-              <span>Executive Coaching Certification</span>
-          </li>
-        </ul>
-        </div>
+      {/* Credentials & Certifications */}
+      <section className="space-y-6">
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">Credentials & Certifications</h2>
 
-        <div 
-          className="rounded-xl perspective-1000 cursor-pointer h-[500px] sm:h-[600px]"
-          onClick={() => setIsFlipped(!isFlipped)}
-        >
-          <div className={`relative w-full h-full transition-transform duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-            {/* Front of card - certif.png */}
-            <div className="absolute w-full h-full backface-hidden rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">Certifications</h2>
-              <div className="relative w-full h-[calc(100%-80px)]">
-                <Image
-                  src="/certif.png"
-                  alt="Leadership Certificate - Developing Emerging Leaders"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <p className="text-sm text-slate-500 text-center mt-4">Click to see more</p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Certificate 1 - Stakeholder Centered Coaching (Best) */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 text-center">Stakeholder Centered Coaching</h3>
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/1.png"
+                alt="Stakeholder Centered Coaching Certificate"
+                fill
+                className="object-contain"
+              />
             </div>
-            
-            {/* Back of card - 2.png */}
-            <div className="absolute w-full h-full backface-hidden rotate-y-180 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6">
-              <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">Certifications</h2>
-              <div className="relative w-full h-[calc(100%-80px)]">
-                <Image
-                  src="/2.png"
-                  alt="Strategy Certificate - Strategy in the Age of Digital Disruption"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <p className="text-sm text-slate-500 text-center mt-4">Click to flip back</p>
+          </div>
+
+          {/* Certificate 2 - INSEAD Essentials of Coaching */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 text-center">Essentials of Coaching</h3>
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/2.png"
+                alt="INSEAD Essentials of Coaching Certificate"
+                fill
+                className="object-contain"
+              />
+            </div>
+          </div>
+
+          {/* Certificate 3 - INSEAD Leading in a Transforming World */}
+          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
+            <h3 className="text-lg font-bold text-slate-900 text-center">Leading in a Transforming World</h3>
+            <div className="relative w-full h-[400px]">
+              <Image
+                src="/3.png"
+                alt="INSEAD Leading in a Transforming World Certificate"
+                fill
+                className="object-contain"
+              />
             </div>
           </div>
         </div>
