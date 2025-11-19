@@ -4,10 +4,7 @@ export default config({
   storage: process.env.NODE_ENV === 'production'
     ? {
         kind: 'github',
-        repo: {
-          owner: 'autonomyowner',
-          name: 'Moteib-'
-        }
+        repo: 'autonomyowner/Moteib-'
       }
     : {
         kind: 'local',
