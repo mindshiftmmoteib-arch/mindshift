@@ -31,11 +31,14 @@ In your Vercel project settings, add these environment variables:
 
 ```
 KEYSTATIC_GITHUB_CLIENT_ID=Ov23lirU4vSdTWNP6Bgq
-KEYSTATIC_GITHUB_CLIENT_SECRET=513d9b1f6c2dfbead9fd7afae639ebc9e1b68893
-KEYSTATIC_SECRET=8AxMdV7iv4/+OPja+S4IH8oAdzX/ltuWyphTQGLIT2k=
+KEYSTATIC_GITHUB_CLIENT_SECRET=<your_new_client_secret_from_github>
+KEYSTATIC_SECRET=4f85fb09f3cb5585be3e8dcaa1fa466dbf47888867b5d6296b3ce13586eadddc
 ```
 
-**Important:** Make sure your GitHub OAuth App callback URL is set to:
+**IMPORTANT NOTES:**
+- `KEYSTATIC_GITHUB_CLIENT_SECRET`: Use the newest client secret from your GitHub OAuth App
+- `KEYSTATIC_SECRET`: Must be alphanumeric only (no `/`, `+`, or `=` characters) to avoid URL encoding issues
+- Make sure your GitHub OAuth App callback URL is set to:
 ```
 https://moteib-client.vercel.app/api/keystatic/github/oauth/callback
 ```

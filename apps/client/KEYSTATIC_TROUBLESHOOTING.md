@@ -31,7 +31,20 @@ Authorization callback URL: https://moteib-client.vercel.app/api/keystatic/githu
 - Must use `https://`
 - Must match your production domain exactly
 
-#### 2. Client Secret Issue
+#### 2. KEYSTATIC_SECRET Contains Special Characters ⚠️
+
+**CRITICAL:** If your `KEYSTATIC_SECRET` contains `/`, `+`, or `=` characters, it will cause authorization failures!
+
+The original secret `8AxMdV7iv4/+OPja+S4IH8oAdzX/ltuWyphTQGLIT2k=` contains special characters that break URL encoding.
+
+**Fix:**
+1. Go to Vercel → Environment Variables
+2. Update `KEYSTATIC_SECRET` to: `4f85fb09f3cb5585be3e8dcaa1fa466dbf47888867b5d6296b3ce13586eadddc`
+3. Save and redeploy
+
+Use only alphanumeric characters (letters and numbers) for the secret!
+
+#### 3. Client Secret Issue
 
 The Client Secret format you provided looks like it might be incorrect or outdated.
 
