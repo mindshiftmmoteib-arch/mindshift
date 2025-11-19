@@ -11,6 +11,12 @@ coverage/
 .env*
 !.env.example
 
+# Client credentials (DO NOT COMMIT!)
+# Template is OK, but filled-out credentials should never be committed
+*_CREDENTIALS_FILLED.md
+*_credentials_filled.md
+CLIENT_CREDENTIALS.md
+
 # Logs
 npm-debug.log*
 yarn-debug.log*
