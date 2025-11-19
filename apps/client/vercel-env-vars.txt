@@ -1,0 +1,69 @@
+IMPORTANT: Copy and paste these environment variables to your Vercel project settings
+
+1. Go to: https://vercel.com/[your-account]/[your-project]/settings/environment-variables
+2. DELETE all existing Keystatic-related variables first
+3. Add each of these as a new environment variable
+4. Make sure they are enabled for "Production" environment
+5. Redeploy your site
+
+================================
+ENVIRONMENT VARIABLES TO ADD:
+================================
+
+KEYSTATIC_GITHUB_CLIENT_ID
+Iv23liAbxV1nEsixL6bN
+
+KEYSTATIC_GITHUB_CLIENT_SECRET
+c249c9c388083c52e1e213dc733214c6c2b319e1
+
+KEYSTATIC_SECRET
+l5MnAoLAJB9rNtNCFQAX3uiz0ixyZbstOjrSGd6sl98=
+
+NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG
+moteib-keystatic-cms
+
+KEYSTATIC_GITHUB_APP_ID
+2317760
+
+KEYSTATIC_GITHUB_INSTALLATION_ID
+95481965
+
+KEYSTATIC_GITHUB_PRIVATE_KEY
+-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEAw1I6RmOefg4Vh8WAQ5IqTSIf0E6+Wx8dn16xgdr8UdALyUxX
+EQaTxNESDngouepmr6gsz/I2girpI3FijzsEwdXdRUB+iidLO6FMpRTF0oU8oPFU
+dWFi7vi6NUWPMo2x4J+W83UODtq2gRc8P2bFguOz2puTW6Q3xMLyAagukpRcy+7D
+9z0vDyFwuTWVB4vckaGXCY97aR48JI9JmWF4ogmlnOcu7cG7KwzA4akhcpFE00WA
+oqAiNjAo6OKbL9l1bovKS26RFPiNcRXRjY1y55MO1G/NLiAicQNtT1JrgnPedMkh
+8VNC2DP9E/RcNhnSBwaQDFZheo57vCPTgOjjdQIDAQABAoIBAQCmV/M1W0XxyQDh
+Hny8D1FjW3qIp2dKp1dNERJPqzZUXsCK8S79WwKiDgQ4unDE1TIayzlO59MwTGc9
+PiVYIkVM51yIzAJ4mjpiUF68ANLxFXOrBZyOUyA0sTO0hscLoM0qpf+i27/bOr1P
+d4Bh5p6zeEUGGpUG6PZt5jDA5IC1Z5Nn8afBFPqELlYF6RfHy+kYPKTDQ+mJ49rZ
+3tmoLQsJEwxBahSU75N5tCQlpfnu/Q10HKYgb4FcWg5wrBPxDLO66c47u6wHqUCV
+wpKhpThXmKx4uoiDTXlv81OwqlvsAXA4WKSfHN1mBPGNJiuHqK/Ajp7lQCjEn3HS
+652Fw2XJAoGBAO6rLfnrBJcMRuBqYJ5hoL7aWhx1+OQl4Fg9H2qi2hnWG98Ycx9J
+QFikfTBHWJcc6kH5hNWgA/OwAxh07Kjg9+N27k/3aDa/QaSHVhikr0JGpIkYDs1N
+Jj8hQZ3zRZVg1VH6lwC5JL6T5W/ucXWpsvyUhSkNvNdB4JF4SmW9Wo0nAoGBANGB
+OV1lPq1z/AbtVSmAPre56cTKBQi1yF4MUwXjz97mzA6w5YanFReExhUmLgOOP03+
+Pl52hqJwXVJOEDdStBXTjpM6C+BVKICBvuBmWbyCScTn90fKDVKkRHVJZooqU+eD
+r649+0pcWTsnqL8hppT4sPDl0Vmw4GAhpQKmWmQDAoGBAOeeRnsggg7Ygjwt4GA0
+HJy7KPIv5v/6ZhMcFk4VhxXFvLywbKCzJPghgcCFrMrR6+Fk9m2e4dbvPMHSTw3B
+bbBY7gO69W8UAu9Zy8sUn2TxS6IkL9E7it9/Nb/EpAXIuJzbVQoFo0w0GVicDY4D
+x0jqFaR2yYoZS4fBNmov7h3HAoGAEMHfTsMcYk9Wp08wcqNZYOSz+BOYl3vCzRL7
+SQtRwyh+xeYMVdrjawApv+NP5uTn11swremZF0EZlc28qlApK13Cl7Aa5xSoqq62
+D8jgAJ4DPIa5VrqomiWdfCwk0YRVNb1ove0jPm1ojby8WJ1eb6f8rygSuLPXHplS
+U4Xu0PUCgYA1Y2WiWMrawlpMNzQm5QqGhrVcDEI0BMhUwrOXiRRuSRisgiGyg40Y
+1JngFtpwK17vy40pK5NucHd8x0CTJV5/UELWX0DcoIAHGIE+AELm9yGlCK4uadEt
+Btn/ddRqx4LxD9y5R6L8yWaA2Izt+eA0kU7RnTszNE5xvOcF+mdSJg==
+-----END RSA PRIVATE KEY-----
+
+================================
+AFTER ADDING THESE:
+================================
+
+1. Click "Save" in Vercel
+2. Go to your project's main page in Vercel
+3. Click "Redeploy" button
+4. Choose "Redeploy with existing Build Cache"
+5. Wait for deployment to complete
+6. Test at: https://[your-site]/keystatic
