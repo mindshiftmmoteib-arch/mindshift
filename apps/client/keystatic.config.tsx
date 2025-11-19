@@ -4,7 +4,7 @@ export default config({
   storage: process.env.NODE_ENV === 'production'
     ? {
         kind: 'github',
-        repo: 'autonomyowner/Moteib-'
+        repo: 'mindshiftmmoteib-arch/mindshift'
       }
     : {
         kind: 'local',
