@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import NewsletterSignup from "@/components/NewsletterSignup"
 
 export default function ContactPage() {
   const [isVisible, setIsVisible] = useState(false)
@@ -158,6 +159,17 @@ export default function ContactPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-8 space-y-6">
+        <div className="text-center space-y-3 mb-8">
+          <h2 className="text-2xl font-bold text-slate-900">Stay Connected</h2>
+          <p className="text-base text-slate-700 max-w-2xl mx-auto">
+            Subscribe to receive leadership insights, coaching tips, and updates from MindShift Arabia.
+          </p>
+        </div>
+        <NewsletterSignup />
       </section>
 
       {/* Final CTA */}

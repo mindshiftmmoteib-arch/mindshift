@@ -1,6 +1,7 @@
 "use client"
 
 import { usePathname } from 'next/navigation';
+import NewsletterSignup from './NewsletterSignup';
 
 export default function Footer() {
   const pathname = usePathname();
@@ -8,14 +9,28 @@ export default function Footer() {
 
   return (
     <footer className="mt-auto w-full bg-[#1A5345] text-white py-8 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col items-center space-y-4 text-center">
-          <div className="space-y-2">
-            <p className="text-sm font-medium">© {new Date().getFullYear()} MINDSHIFT ARABIA. All rights reserved.</p>
-            <p className="text-xs text-white/80 italic">
-              {isArabic ? 'مساعدة المديرين على بناء حياة متوازنة' : 'Helping managers build balanced lives'}
+      <div className="max-w-7xl mx-auto space-y-6">
+        {/* Newsletter Section */}
+        <div className="max-w-xl mx-auto">
+          <div className="text-center mb-3">
+            <p className="text-xs text-white/70 mb-2">
+              {isArabic
+                ? 'اشترك لتلقي رؤى القيادة والتحديثات'
+                : 'Subscribe for leadership insights and updates'}
             </p>
           </div>
+          <NewsletterSignup isArabic={isArabic} compact={true} />
+        </div>
+
+        {/* Divider */}
+        <div className="border-t border-white/20"></div>
+
+        {/* Copyright */}
+        <div className="text-center space-y-1">
+          <p className="text-xs font-medium">© {new Date().getFullYear()} MINDSHIFT ARABIA. All rights reserved.</p>
+          <p className="text-xs text-white/70 italic">
+            {isArabic ? 'مساعدة المديرين على بناء حياة متوازنة' : 'Helping managers build balanced lives'}
+          </p>
         </div>
       </div>
     </footer>

@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { Tajawal } from "next/font/google"
+import NewsletterSignup from "@/components/NewsletterSignup"
 
 const tajawal = Tajawal({
   weight: ['400', '500', '700'],
@@ -172,6 +173,17 @@ export default function ContactPageArabic() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-8 space-y-6">
+        <div className="text-center space-y-3 mb-8">
+          <h2 className="text-2xl font-bold text-slate-900">ابق على اتصال</h2>
+          <p className="text-base text-slate-700 max-w-2xl mx-auto">
+            اشترك لتلقي رؤى القيادة ونصائح التدريب والتحديثات من MindShift Arabia.
+          </p>
+        </div>
+        <NewsletterSignup isArabic={true} />
       </section>
 
       {/* Final CTA */}
