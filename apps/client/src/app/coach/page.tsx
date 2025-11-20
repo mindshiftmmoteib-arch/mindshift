@@ -3,14 +3,32 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
+import CoverFlow from "@/components/CoverFlow"
 
 export default function CoachPage() {
   const [isVisible, setIsVisible] = useState(false)
-  const [isFlipped, setIsFlipped] = useState(false)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
+
+  const certificates = [
+    {
+      title: "Stakeholder Centered Coaching",
+      image: "/1.png",
+      alt: "Stakeholder Centered Coaching Certificate"
+    },
+    {
+      title: "Essentials of Coaching",
+      image: "/2.png",
+      alt: "INSEAD Essentials of Coaching Certificate"
+    },
+    {
+      title: "Leading in a Transforming World",
+      image: "/3.png",
+      alt: "INSEAD Leading in a Transforming World Certificate"
+    }
+  ]
 
   return (
     <main className="space-y-12 sm:space-y-16 relative">
@@ -126,47 +144,7 @@ export default function CoachPage() {
       {/* Credentials & Certifications */}
       <section className="space-y-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">Credentials & Certifications</h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Certificate 1 - Stakeholder Centered Coaching (Best) */}
-          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 text-center">Stakeholder Centered Coaching</h3>
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/1.png"
-                alt="Stakeholder Centered Coaching Certificate"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Certificate 2 - INSEAD Essentials of Coaching */}
-          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 text-center">Essentials of Coaching</h3>
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/2.png"
-                alt="INSEAD Essentials of Coaching Certificate"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Certificate 3 - INSEAD Leading in a Transforming World */}
-          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 text-center">Leading in a Transforming World</h3>
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/3.png"
-                alt="INSEAD Leading in a Transforming World Certificate"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        </div>
+        <CoverFlow certificates={certificates} />
       </section>
 
       {/* Success Stories */}
