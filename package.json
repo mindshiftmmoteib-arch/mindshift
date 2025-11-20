@@ -7,7 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm --workspace apps/client run dev"
   },
-  "keywords": ["coaching", "leadership", "balanced-life", "saudi-arabia"],
+  "keywords": [
+    "coaching",
+    "leadership",
+    "balanced-life",
+    "saudi-arabia"
+  ],
   "author": "Coach Moteib Alajmi",
   "license": "ISC",
   "type": "commonjs",
@@ -15,5 +20,11 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "@types/nodemailer": "^7.0.4"
+  },
+  "dependencies": {
+    "@vercel/speed-insights": "^1.2.0"
+  }
 }

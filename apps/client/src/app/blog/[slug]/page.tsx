@@ -30,8 +30,41 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const content = Markdoc.transform(ast);
   const htmlContent = Markdoc.renderers.html(content);
 
+  // Article schema for SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": article.titleEn,
+    "description": article.excerptEn,
+    "datePublished": article.publishedDate,
+    "dateModified": article.publishedDate,
+    "author": {
+      "@type": "Person",
+      "name": "Moteib bin Nasser AlAjmi",
+      "jobTitle": "Marshall Goldsmith Certified Executive Coach",
+      "url": "https://mindshiftarabia.com/coach"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "MINDSHIFT ARABIA",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://mindshiftarabia.com/logo.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://mindshiftarabia.com/blog/${slug}`
+    },
+    "keywords": "leadership coaching, management, work-life balance, Saudi Arabia, executive coaching"
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <Link
           href="/blog"
@@ -97,6 +130,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: article.titleEn,
     description: article.excerptEn,
+    alternates: {
+      canonical: `/blog/${slug}`,
+      languages: {
+        'en': `/blog/${slug}`,
+        'ar': `/ar/blog/${slug}`,
+      },
+    },
+    openGraph: {
+      title: article.titleEn,
+      description: article.excerptEn,
+      type: 'article',
+      publishedTime: article.publishedDate,
+      authors: ['Moteib bin Nasser AlAjmi'],
+      url: `https://mindshiftarabia.com/blog/${slug}`,
+    },
   };
 }
 
