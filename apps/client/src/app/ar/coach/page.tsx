@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import { Tajawal } from "next/font/google"
+import CoverFlow from "@/components/CoverFlow"
 
 const tajawal = Tajawal({
   weight: ['400', '500', '700'],
@@ -18,12 +19,30 @@ export default function CoachPageArabic() {
     setIsVisible(true)
     document.documentElement.setAttribute('dir', 'rtl')
     document.documentElement.setAttribute('lang', 'ar')
-    
+
     return () => {
       document.documentElement.setAttribute('dir', 'ltr')
       document.documentElement.setAttribute('lang', 'en')
     }
   }, [])
+
+  const certificates = [
+    {
+      title: "التدريب المتمركز حول أصحاب المصلحة",
+      image: "/1.png",
+      alt: "شهادة التدريب المتمركز حول أصحاب المصلحة"
+    },
+    {
+      title: "أساسيات التدريب",
+      image: "/2.png",
+      alt: "شهادة أساسيات التدريب من إنسياد"
+    },
+    {
+      title: "القيادة في عالم متحول",
+      image: "/3.png",
+      alt: "شهادة القيادة في عالم متحول من إنسياد"
+    }
+  ]
 
   return (
     <main className={`space-y-12 sm:space-y-16 relative ${tajawal.className}`}>
@@ -139,47 +158,7 @@ export default function CoachPageArabic() {
       {/* Credentials & Certifications */}
       <section className="space-y-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 text-center">الشهادات والمؤهلات</h2>
-
-        <div className="grid md:grid-cols-3 gap-6">
-          {/* Certificate 1 - Stakeholder Centered Coaching (Best) */}
-          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 text-center">التدريب المتمركز حول أصحاب المصلحة</h3>
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/1.png"
-                alt="شهادة التدريب المتمركز حول أصحاب المصلحة"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Certificate 2 - INSEAD Essentials of Coaching */}
-          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 text-center">أساسيات التدريب</h3>
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/2.png"
-                alt="شهادة أساسيات التدريب من إنسياد"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-
-          {/* Certificate 3 - INSEAD Leading in a Transforming World */}
-          <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-            <h3 className="text-lg font-bold text-slate-900 text-center">القيادة في عالم متحول</h3>
-            <div className="relative w-full h-[400px]">
-              <Image
-                src="/3.png"
-                alt="شهادة القيادة في عالم متحول من إنسياد"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-        </div>
+        <CoverFlow certificates={certificates} />
       </section>
 
       {/* Success Stories */}
