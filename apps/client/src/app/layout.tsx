@@ -17,6 +17,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "MINDSHIFT ARABIA | Leadership Coaching",
   description: "Leadership coaching for balanced management. Moteib bin Nasser AlAjmi helps managers build balanced lives through proven coaching programs in Saudi Arabia.",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/logo.png", type: "image/png", sizes: "any" },
+    ],
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "MINDSHIFT ARABIA | Leadership Coaching",
     description: "Leadership coaching for balanced management. Moteib bin Nasser AlAjmi helps managers build balanced lives through proven coaching programs in Saudi Arabia.",
