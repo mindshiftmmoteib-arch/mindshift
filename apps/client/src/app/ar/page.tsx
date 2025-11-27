@@ -6,9 +6,10 @@ import { useEffect, useState } from "react"
 import { Tajawal } from "next/font/google"
 
 const tajawal = Tajawal({
-  weight: ['400', '500', '700'],
+  weight: ['400', '700'],
   subsets: ["arabic"],
   display: 'swap',
+  preload: true,
 })
 
 export default function ArabicLandingPage() {
@@ -111,6 +112,95 @@ export default function ArabicLandingPage() {
             }
           }
         `}</style>
+      </section>
+
+      {/* About Coach */}
+      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+        <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">تعرّف على مدربك</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            <span className="font-semibold">الكوتش متعب بن ناصر العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            بفضل سنوات من الخبرة في تطوير القيادة وفهم عميق للتحديات التي تواجه المديرين المعاصرين، يجمع الكوتش متعب بن ناصر بين الاستراتيجيات العملية والإرشاد الشخصي لمساعدتك على تحقيق نمو مستدام.
+          </p>
+          <Link
+            href="/ar/coach"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+          >
+            اعرف المزيد عن الكوتش متعب بن ناصر
+            <span aria-hidden="true">←</span>
+          </Link>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 flex flex-col justify-center items-center">
+          <div className="relative w-32 h-32 mb-3">
+            <Image
+              src="/logo.png"
+              alt="شعار MINDSHIFT ARABIA"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <p className="text-center text-sm text-slate-700 italic">
+            توازن العقول. بناء المستقبل.
+          </p>
+        </div>
+      </section>
+
+      {/* What You'll Achieve */}
+      <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">ما الذي ستحققه</h2>
+        <p className="text-sm sm:text-base text-slate-800">
+          برامجنا التدريبية مصممة لخلق تحول دائم في قيادتك وحياتك.
+        </p>
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-800">
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">اتجاه واضح</span>
+            تطوير رؤية واضحة لرحلتك القيادية ومسارك المهني.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">توازن بين العمل والحياة</span>
+            بناء عادات مستدامة تدعم النجاح المهني والشخصي.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">تميّز الفريق</span>
+            تعلّم كيفية إلهام وتحفيز وتطوير فرق عالية الأداء.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">تفكير استراتيجي</span>
+            تعزيز قدراتك في اتخاذ القرارات والتخطيط الاستراتيجي.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">تواصل واثق</span>
+            إتقان فن التواصل الواضح والمؤثر على جميع المستويات.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">نمو دائم</span>
+            خلق تغيير مستدام يستمر لفترة طويلة بعد انتهاء التدريب.
+          </li>
+        </ul>
+      </section>
+
+      {/* Coaching Approach */}
+      <section className="grid md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">منهجنا</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            كل رحلة تدريبية مخصصة لتحدياتك وأهدافك وسياقك الفريد. نجمع بين الأطر المجربة والأدوات العملية التي يمكنك تطبيقها فورًا في دورك القيادي.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            من خلال جلسات فردية، ومهام قابلة للتنفيذ، ودعم مستمر، ستطور المهارات والعقلية اللازمة للقيادة بثقة وتوازن.
+          </p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">لمن هذا البرنامج</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            برامجنا مثالية للمديرين والقادة الملتزمين بالنمو الشخصي والراغبين في إحداث تغيير إيجابي في فرقهم ومؤسساتهم.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            سواء كنت مديرًا جديدًا أو مديرًا تنفيذيًا ذا خبرة، سيلبي تدريبنا احتياجاتك ويساعدك على الوصول إلى إمكاناتك الكاملة.
+          </p>
+        </div>
       </section>
 
       {/* Coaching Programs */}
@@ -241,127 +331,11 @@ export default function ArabicLandingPage() {
         </div>
       </section>
 
-      {/* Certification Banner */}
-      <section
-        className="relative -mx-3 sm:-mx-4 md:-mx-6 px-3 sm:px-4 md:px-6"
-        aria-label="Marshall Goldsmith Certification Banner"
-      >
-        <div
-          className="w-full border border-[#B99B56]/40 shadow-lg text-center text-white tracking-wide"
-          style={{ background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)' }}
-        >
-          <div className="px-4 py-4 sm:py-5 space-y-1">
-            <p className="text-lg sm:text-xl font-semibold uppercase">Marshall Goldsmith</p>
-            <p className="text-xs sm:text-sm font-medium text-[#F7E4B0] tracking-[0.45em]">
-              — CERTIFIED EXECUTIVE COACH —
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* About Coach */}
-      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
-        <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">تعرّف على مدربك</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            <span className="font-semibold">الكوتش متعب بن ناصر العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            بفضل سنوات من الخبرة في تطوير القيادة وفهم عميق للتحديات التي تواجه المديرين المعاصرين، يجمع الكوتش متعب بن ناصر بين الاستراتيجيات العملية والإرشاد الشخصي لمساعدتك على تحقيق نمو مستدام.
-          </p>
-          <Link
-            href="/ar/coach"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
-          >
-            اعرف المزيد عن الكوتش متعب بن ناصر
-            <span aria-hidden="true">←</span>
-          </Link>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 flex flex-col justify-center items-center">
-          <div className="relative w-32 h-32 mb-3">
-            <Image
-              src="/logo.png"
-              alt="شعار MINDSHIFT ARABIA"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <p className="text-center text-sm text-slate-700 italic">
-            توازن العقول. بناء المستقبل.
-          </p>
-        </div>
-      </section>
-
-      {/* What You'll Achieve */}
-      <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">ما الذي ستحققه</h2>
-        <p className="text-sm sm:text-base text-slate-800">
-          برامجنا التدريبية مصممة لخلق تحول دائم في قيادتك وحياتك.
-        </p>
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-800">
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">اتجاه واضح</span>
-            تطوير رؤية واضحة لرحلتك القيادية ومسارك المهني.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">توازن بين العمل والحياة</span>
-            بناء عادات مستدامة تدعم النجاح المهني والشخصي.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">تميّز الفريق</span>
-            تعلّم كيفية إلهام وتحفيز وتطوير فرق عالية الأداء.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">تفكير استراتيجي</span>
-            تعزيز قدراتك في اتخاذ القرارات والتخطيط الاستراتيجي.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">تواصل واثق</span>
-            إتقان فن التواصل الواضح والمؤثر على جميع المستويات.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">نمو دائم</span>
-            خلق تغيير مستدام يستمر لفترة طويلة بعد انتهاء التدريب.
-          </li>
-        </ul>
-      </section>
-
-      {/* Coaching Approach */}
-      <section className="grid md:grid-cols-2 gap-4 sm:gap-6">
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">منهجنا</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            كل رحلة تدريبية مخصصة لتحدياتك وأهدافك وسياقك الفريد. نجمع بين الأطر المجربة والأدوات العملية التي يمكنك تطبيقها فورًا في دورك القيادي.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            من خلال جلسات فردية، ومهام قابلة للتنفيذ، ودعم مستمر، ستطور المهارات والعقلية اللازمة للقيادة بثقة وتوازن.
-          </p>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">لمن هذا البرنامج</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            برامجنا مثالية للمديرين والقادة الملتزمين بالنمو الشخصي والراغبين في إحداث تغيير إيجابي في فرقهم ومؤسساتهم.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            سواء كنت مديرًا جديدًا أو مديرًا تنفيذيًا ذا خبرة، سيلبي تدريبنا احتياجاتك ويساعدك على الوصول إلى إمكاناتك الكاملة.
-          </p>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="text-center space-y-3 sm:space-y-4 text-slate-900 px-2">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">هل أنت مستعد لتحويل قيادتك؟</h2>
         <p className="text-sm sm:text-base text-slate-700">احجز مكالمتك الاستشارية المجانية اليوم واكتشف كيف يمكن للتدريب أن يساعدك على بناء الحياة المتوازنة والناجحة التي تستحقها.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="https://calendly.com/coach_moteib"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30"
-            aria-label="احجز مكالمتك اليوم"
-          >
-            احجز مكالمتك اليوم
-          </Link>
           <Link
             href="/ar/programs"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-colors"
