@@ -7,9 +7,10 @@ import { Tajawal } from "next/font/google"
 import CoverFlow from "@/components/CoverFlow"
 
 const tajawal = Tajawal({
-  weight: ['400', '500', '700'],
+  weight: ['400', '700'],
   subsets: ["arabic"],
   display: 'swap',
+  preload: true,
 })
 
 export default function CoachPageArabic() {
@@ -56,7 +57,9 @@ export default function CoachPageArabic() {
               src="/logo.png"
               alt="الكوتش متعب بن ناصر العجمي"
               fill
+              sizes="160px"
               className="object-contain"
+              priority
             />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">

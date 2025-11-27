@@ -95,6 +95,95 @@ export default function LandingPage() {
         `}</style>
       </section>
 
+      {/* About Coach */}
+      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
+        <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Meet Your Coach</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            <span className="font-semibold">Moteib bin Nasser AlAjmi</span> is a certified leadership coach from Saudi Arabia with a proven track record of helping managers transform their leadership style and build balanced, successful lives.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            With years of experience in leadership development and a deep understanding of the challenges facing modern managers, Moteib bin Nasser AlAjmi combines practical strategies with personalized guidance to help you achieve sustainable growth.
+          </p>
+          <Link
+            href="/coach"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
+          >
+            Learn more about Moteib bin Nasser AlAjmi
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 flex flex-col justify-center items-center">
+          <div className="relative w-32 h-32 mb-3">
+            <Image
+              src="/logo.png"
+              alt="MINDSHIFT ARABIA Logo"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <p className="text-center text-sm text-slate-700 italic">
+            Balance Minds. Build Futures.
+          </p>
+        </div>
+      </section>
+
+      {/* What You'll Achieve */}
+      <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">What You&apos;ll Achieve</h2>
+        <p className="text-sm sm:text-base text-slate-800">
+          Our coaching programs are designed to create lasting transformation in your leadership and life.
+        </p>
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-800">
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">Clear Direction</span>
+            Develop a clear vision for your leadership journey and career path.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">Work-Life Balance</span>
+            Build sustainable habits that support both professional and personal success.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">Team Excellence</span>
+            Learn to inspire, motivate, and develop high-performing teams.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">Strategic Thinking</span>
+            Enhance your decision-making and strategic planning capabilities.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">Confident Communication</span>
+            Master the art of clear, impactful communication at all levels.
+          </li>
+          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
+            <span className="block font-semibold text-sm sm:text-base mb-1">Lasting Growth</span>
+            Create sustainable change that continues long after coaching ends.
+          </li>
+        </ul>
+      </section>
+
+      {/* Coaching Approach */}
+      <section className="grid md:grid-cols-2 gap-4 sm:gap-6">
+        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Our Approach</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            Every coaching journey is personalized to your unique challenges, goals, and context. We combine proven frameworks with practical tools that you can apply immediately in your leadership role.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            Through one-on-one sessions, actionable assignments, and ongoing support, you&apos;ll develop the skills and mindset needed to lead with confidence and balance.
+          </p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Who It&apos;s For</h2>
+          <p className="text-sm sm:text-base text-slate-800">
+            Our programs are ideal for managers and leaders who are committed to personal growth and want to create positive change in their teams and organizations.
+          </p>
+          <p className="text-sm sm:text-base text-slate-700">
+            Whether you&apos;re a new manager or an experienced executive, our coaching will meet you where you are and help you reach your full potential.
+          </p>
+        </div>
+      </section>
+
       {/* Coaching Programs */}
       <section className="space-y-6">
         <div className="text-center space-y-2">
@@ -223,127 +312,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Certification Banner */}
-      <section
-        className="relative -mx-3 sm:-mx-4 md:-mx-6 px-3 sm:px-4 md:px-6"
-        aria-label="Marshall Goldsmith Certification Banner"
-      >
-        <div
-          className="w-full border border-[#B99B56]/40 shadow-lg text-center text-white tracking-wide"
-          style={{ background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)' }}
-        >
-          <div className="px-4 py-4 sm:py-5 space-y-1">
-            <p className="text-lg sm:text-xl font-semibold uppercase">Marshall Goldsmith</p>
-            <p className="text-xs sm:text-sm font-medium text-[#F7E4B0] tracking-[0.45em]">
-              — CERTIFIED EXECUTIVE COACH —
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* About Coach */}
-      <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
-        <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Meet Your Coach</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            <span className="font-semibold">Moteib bin Nasser AlAjmi</span> is a certified leadership coach from Saudi Arabia with a proven track record of helping managers transform their leadership style and build balanced, successful lives.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            With years of experience in leadership development and a deep understanding of the challenges facing modern managers, Moteib bin Nasser AlAjmi combines practical strategies with personalized guidance to help you achieve sustainable growth.
-          </p>
-          <Link
-            href="/coach"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-amber-600 hover:text-amber-700 transition-colors"
-          >
-            Learn more about Moteib bin Nasser AlAjmi
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 flex flex-col justify-center items-center">
-          <div className="relative w-32 h-32 mb-3">
-            <Image
-              src="/logo.png"
-              alt="MINDSHIFT ARABIA Logo"
-              fill
-              className="object-contain"
-            />
-          </div>
-          <p className="text-center text-sm text-slate-700 italic">
-            Balance Minds. Build Futures.
-          </p>
-        </div>
-      </section>
-
-      {/* What You'll Achieve */}
-      <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900">What You&apos;ll Achieve</h2>
-        <p className="text-sm sm:text-base text-slate-800">
-          Our coaching programs are designed to create lasting transformation in your leadership and life.
-        </p>
-        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-800">
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">Clear Direction</span>
-            Develop a clear vision for your leadership journey and career path.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">Work-Life Balance</span>
-            Build sustainable habits that support both professional and personal success.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">Team Excellence</span>
-            Learn to inspire, motivate, and develop high-performing teams.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">Strategic Thinking</span>
-            Enhance your decision-making and strategic planning capabilities.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">Confident Communication</span>
-            Master the art of clear, impactful communication at all levels.
-          </li>
-          <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
-            <span className="block font-semibold text-sm sm:text-base mb-1">Lasting Growth</span>
-            Create sustainable change that continues long after coaching ends.
-          </li>
-        </ul>
-      </section>
-
-      {/* Coaching Approach */}
-      <section className="grid md:grid-cols-2 gap-4 sm:gap-6">
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Our Approach</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            Every coaching journey is personalized to your unique challenges, goals, and context. We combine proven frameworks with practical tools that you can apply immediately in your leadership role.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            Through one-on-one sessions, actionable assignments, and ongoing support, you&apos;ll develop the skills and mindset needed to lead with confidence and balance.
-          </p>
-        </div>
-        <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Who It&apos;s For</h2>
-          <p className="text-sm sm:text-base text-slate-800">
-            Our programs are ideal for managers and leaders who are committed to personal growth and want to create positive change in their teams and organizations.
-          </p>
-          <p className="text-sm sm:text-base text-slate-700">
-            Whether you&apos;re a new manager or an experienced executive, our coaching will meet you where you are and help you reach your full potential.
-          </p>
-        </div>
-      </section>
-
       {/* Final CTA */}
       <section className="text-center space-y-3 sm:space-y-4 text-slate-900 px-2">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">Ready to Transform Your Leadership?</h2>
         <p className="text-sm sm:text-base text-slate-700">Book your complimentary consultation call today and discover how coaching can help you build the balanced, successful life you deserve.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-          <Link
-            href="https://calendly.com/coach_moteib"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold text-slate-900 bg-gradient-to-r from-yellow-400 to-amber-500 shadow hover:brightness-105 focus:outline-none focus:ring-2 focus:ring-white/30"
-            aria-label="Book Your Call Today"
-          >
-            Book Your Call Today
-          </Link>
           <Link
             href="/programs"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-semibold border-2 border-amber-500 text-slate-900 hover:bg-amber-50 focus:outline-none focus:ring-2 focus:ring-amber-300 transition-colors"

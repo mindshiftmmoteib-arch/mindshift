@@ -65,6 +65,12 @@ export default function CoverFlow({ certificates }: CoverFlowProps) {
     }
   };
 
+  // Check if image should be loaded (active or adjacent)
+  const shouldLoadImage = (index: number) => {
+    const position = Math.abs(index - activeIndex);
+    return position <= 1; // Load active and adjacent images only
+  };
+
   return (
     <div className="space-y-8">
       {/* CoverFlow Container */}
@@ -73,6 +79,7 @@ export default function CoverFlow({ certificates }: CoverFlowProps) {
           {certificates.map((cert, index) => {
             const style = getTransformStyle(index);
             const isActive = index === activeIndex;
+            const loadImage = shouldLoadImage(index);
 
             return (
               <div
@@ -93,13 +100,19 @@ export default function CoverFlow({ certificates }: CoverFlowProps) {
                     {cert.title}
                   </h3>
                   <div className="relative w-full h-[350px] sm:h-[400px]">
-                    <Image
-                      src={cert.image}
-                      alt={cert.alt}
-                      fill
-                      className="object-contain"
-                      priority={isActive}
-                    />
+                    {loadImage ? (
+                      <Image
+                        src={cert.image}
+                        alt={cert.alt}
+                        fill
+                        sizes="(max-width: 640px) 350px, 400px"
+                        className="object-contain"
+                        priority={index === 1}
+                        loading={index === 1 ? "eager" : "lazy"}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-slate-100 animate-pulse rounded" />
+                    )}
                   </div>
                 </div>
               </div>

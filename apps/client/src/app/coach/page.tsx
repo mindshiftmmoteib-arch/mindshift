@@ -42,7 +42,9 @@ export default function CoachPage() {
               src="/logo.png"
               alt="Moteib bin Nasser AlAjmi"
               fill
+              sizes="160px"
               className="object-contain"
+              priority
             />
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">
