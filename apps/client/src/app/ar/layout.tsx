@@ -1,8 +1,8 @@
 ﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "MINDSHIFT ARABIA | تدريب القيادة",
-  description: "تدريب قيادي لإدارة متوازنة. الكوتش متعب بن ناصر العجمي يساعد المديرين على بناء حياة متوازنة من خلال برامج تدريبية مُثبتة في المملكة العربية السعودية.",
+  title: "MINDSHIFT ARABIA | كوتشينغ القيادة",
+  description: "كوتشينغ قيادي لإدارة متوازنة. الكوتش متعب بن ناصر العجمي يساعد المديرين على بناء حياة متوازنة من خلال برامج كوتشينغ مُثبتة في المملكة العربية السعودية.",
   alternates: {
     canonical: '/ar',
     languages: {
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "MINDSHIFT ARABIA | تدريب القيادة",
-    description: "تدريب قيادي لإدارة متوازنة. الكوتش متعب بن ناصر العجمي يساعد المديرين على بناء حياة متوازنة من خلال برامج تدريبية مُثبتة في المملكة العربية السعودية.",
+    title: "MINDSHIFT ARABIA | كوتشينغ القيادة",
+    description: "كوتشينغ قيادي لإدارة متوازنة. الكوتش متعب بن ناصر العجمي يساعد المديرين على بناء حياة متوازنة من خلال برامج كوتشينغ مُثبتة في المملكة العربية السعودية.",
     url: 'https://mindshiftarabia.com/ar',
     locale: "ar_SA",
     siteName: "MINDSHIFT ARABIA",

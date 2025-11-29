@@ -64,7 +64,7 @@ export default function ArabicLandingPage() {
             <span className={`inline-block transition-all duration-700 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>مع الكوتش متعب بن ناصر العجمي</span>
           </h1>
           <p className="mx-auto md:mx-0 max-w-3xl text-base sm:text-lg md:text-xl text-slate-700 px-2 md:px-0">
-            مساعدة المديرين على بناء حياة متوازنة من خلال برامج تدريب قيادية مُثبتة.
+            مساعدة المديرين على بناء حياة متوازنة من خلال برامج كوتشينغ قيادية مُثبتة.
             حوّل أسلوب إدارتك، قوّي فريقك، واحصل على نجاح دائم.
           </p>
           <div className="flex flex-col sm:flex-row-reverse items-end justify-end gap-3 pt-2 w-full">
@@ -117,7 +117,7 @@ export default function ArabicLandingPage() {
       {/* About Coach */}
       <section className="grid md:grid-cols-3 gap-4 sm:gap-6 items-stretch">
         <div className="md:col-span-2 rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">تعرّف على مدربك</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900">تعرّف على الكوتش</h2>
           <p className="text-sm sm:text-base text-slate-800">
             <span className="font-semibold">الكوتش متعب بن ناصر العجمي</span> هو مدرب قيادة معتمد من المملكة العربية السعودية يتمتع بسجل حافل في مساعدة المديرين على تحويل أسلوب قيادتهم وبناء حياة متوازنة وناجحة.
           </p>
@@ -151,7 +151,7 @@ export default function ArabicLandingPage() {
       <section className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-3 sm:space-y-4">
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900">ما الذي ستحققه</h2>
         <p className="text-sm sm:text-base text-slate-800">
-          برامجنا التدريبية مصممة لخلق تحول دائم في قيادتك وحياتك.
+          برامجنا الكوتشية مصممة لخلق تحول دائم في قيادتك وحياتك.
         </p>
         <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-slate-800">
           <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
@@ -176,7 +176,7 @@ export default function ArabicLandingPage() {
           </li>
           <li className="rounded-lg border border-slate-200 bg-slate-50 p-3 sm:p-4">
             <span className="block font-semibold text-sm sm:text-base mb-1">نمو دائم</span>
-            خلق تغيير مستدام يستمر لفترة طويلة بعد انتهاء التدريب.
+            خلق تغيير مستدام يستمر لفترة طويلة بعد انتهاء الكوتشينغ.
           </li>
         </ul>
       </section>
@@ -186,7 +186,7 @@ export default function ArabicLandingPage() {
         <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-4 sm:p-6 space-y-2 sm:space-y-3">
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900">منهجنا</h2>
           <p className="text-sm sm:text-base text-slate-800">
-            كل رحلة تدريبية مخصصة لتحدياتك وأهدافك وسياقك الفريد. نجمع بين الأطر المجربة والأدوات العملية التي يمكنك تطبيقها فورًا في دورك القيادي.
+            كل رحلة كوتشينغ مخصصة لتحدياتك وأهدافك وسياقك الفريد. نجمع بين الأطر المجربة والأدوات العملية التي يمكنك تطبيقها فورًا في دورك القيادي.
           </p>
           <p className="text-sm sm:text-base text-slate-700">
             من خلال جلسات فردية، ومهام قابلة للتنفيذ، ودعم مستمر، ستطور المهارات والعقلية اللازمة للقيادة بثقة وتوازن.
@@ -198,7 +198,7 @@ export default function ArabicLandingPage() {
             برامجنا مثالية للمديرين والقادة الملتزمين بالنمو الشخصي والراغبين في إحداث تغيير إيجابي في فرقهم ومؤسساتهم.
           </p>
           <p className="text-sm sm:text-base text-slate-700">
-            سواء كنت مديرًا جديدًا أو مديرًا تنفيذيًا ذا خبرة، سيلبي تدريبنا احتياجاتك ويساعدك على الوصول إلى إمكاناتك الكاملة.
+            سواء كنت مديرًا جديدًا أو مديرًا تنفيذيًا ذا خبرة، سيلبي الكوتشينغ احتياجاتك ويساعدك على الوصول إلى إمكاناتك الكاملة.
           </p>
         </div>
       </section>
@@ -206,7 +206,7 @@ export default function ArabicLandingPage() {
       {/* Coaching Programs */}
       <section className="space-y-6">
         <div className="text-center space-y-2">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">اختر رحلتك التدريبية</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900">اختر رحلتك الكوتشية</h2>
           <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto">
             برامج قيادية مصممة خصيصًا لتلبية احتياجاتك وتحقيق أهدافك.
           </p>
@@ -237,7 +237,7 @@ export default function ArabicLandingPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500 mt-0.5">✓</span>
-                <span>جلسات تدريب كل أسبوعين</span>
+                <span>جلسات كوتشينغ كل أسبوعين</span>
               </li>
             </ul>
             <Link
@@ -278,7 +278,7 @@ export default function ArabicLandingPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500 mt-0.5">✓</span>
-                <span>جلسات تدريب أسبوعية</span>
+                <span>جلسات كوتشينغ أسبوعية</span>
               </li>
             </ul>
             <Link
@@ -316,7 +316,7 @@ export default function ArabicLandingPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500 mt-0.5">✓</span>
-                <span>دعم تدريبي مخصص وذو أولوية</span>
+                <span>دعم كوتشينغ مخصص وذو أولوية</span>
               </li>
             </ul>
             <Link
@@ -334,7 +334,7 @@ export default function ArabicLandingPage() {
       {/* Final CTA */}
       <section className="text-center space-y-3 sm:space-y-4 text-slate-900 px-2">
         <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900">هل أنت مستعد لتحويل قيادتك؟</h2>
-        <p className="text-sm sm:text-base text-slate-700">احجز مكالمتك الاستشارية المجانية اليوم واكتشف كيف يمكن للتدريب أن يساعدك على بناء الحياة المتوازنة والناجحة التي تستحقها.</p>
+        <p className="text-sm sm:text-base text-slate-700">احجز مكالمتك الاستشارية المجانية اليوم واكتشف كيف يمكن للكوتشينغ أن يساعدك على بناء الحياة المتوازنة والناجحة التي تستحقها.</p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
           <Link
             href="/ar/programs"

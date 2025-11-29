@@ -31,7 +31,7 @@ export default function ProgramsPageArabic() {
         <h1 className={`text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 transition-all duration-1000 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          برامج التدريب القيادي
+          برامج الكوتشينغ القيادي
         </h1>
         <p className={`mx-auto max-w-3xl text-base sm:text-lg text-slate-700 px-2 transition-all duration-1000 delay-300 ease-out ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
@@ -82,7 +82,7 @@ export default function ProgramsPageArabic() {
             <div className="space-y-2 pt-3 border-t border-slate-200">
               <h3 className="text-base font-semibold text-slate-900">هيكل البرنامج</h3>
               <ul className="text-sm text-slate-700 space-y-1">
-                <li>• جلسات تدريب فردية عبر الإنترنت كل أسبوعين (30 دقيقة)</li>
+                <li>• جلسات كوتشينغ فردية عبر الإنترنت كل أسبوعين (30 دقيقة)</li>
                 <li>• 25 جلسة إجمالاً</li>
                 <li>• دعم عبر البريد الإلكتروني بين الجلسات</li>
                 <li>• خطط عمل شخصية</li>
@@ -146,7 +146,7 @@ export default function ProgramsPageArabic() {
             <div className="space-y-2 pt-3 border-t border-slate-200">
               <h3 className="text-base font-semibold text-slate-900">هيكل البرنامج</h3>
               <ul className="text-sm text-slate-700 space-y-1">
-                <li>• جلسات تدريب فردية أسبوعية عبر الإنترنت (30 دقيقة)</li>
+                <li>• جلسات كوتشينغ فردية أسبوعية عبر الإنترنت (30 دقيقة)</li>
                 <li>• 37 جلسة إجمالاً</li>
                 <li>• دعم غير محدود عبر البريد الإلكتروني والرسائل</li>
                 <li>• تقييمات قيادية مخصصة</li>
@@ -207,7 +207,7 @@ export default function ProgramsPageArabic() {
             <div className="space-y-2 pt-3 border-t border-slate-200">
               <h3 className="text-base font-semibold text-slate-900">هيكل البرنامج</h3>
               <ul className="text-sm text-slate-700 space-y-1">
-                <li>• جلسات تدريب فردية أسبوعية عبر الإنترنت (30 دقيقة)</li>
+                <li>• جلسات كوتشينغ فردية أسبوعية عبر الإنترنت (30 دقيقة)</li>
                 <li>• 50 جلسة إجمالاً</li>
                 <li>• دعم ذو أولوية على مدار الساعة</li>
                 <li>• تقييمات ملاحظات 360 درجة</li>
@@ -242,7 +242,7 @@ export default function ProgramsPageArabic() {
           </thead>
           <tbody className="text-slate-700">
             <tr className="border-b border-slate-200">
-              <td className="py-3 px-2">جلسات التدريب الفردية</td>
+              <td className="py-3 px-2">جلسات الكوتشينغ الفردية</td>
               <td className="text-center py-3 px-2">25 جلسة عبر الإنترنت (30 دقيقة)</td>
               <td className="text-center py-3 px-2 bg-amber-50">37 جلسة عبر الإنترنت (30 دقيقة)</td>
               <td className="text-center py-3 px-2">50 جلسة عبر الإنترنت (30 دقيقة)</td>
@@ -292,7 +292,7 @@ export default function ProgramsPageArabic() {
         <div className="text-center space-y-3">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-900">أساسيات القيادة الجوهرية</h2>
           <p className="text-base text-slate-700 max-w-3xl mx-auto">
-            نهجنا في التدريب مبني على مبادئ أساسية تساعد المدربين على التطور ليصبحوا قادة فعالين ومتوازنين. هذه الأساسيات الجوهرية مدمجة في جميع برامجنا.
+            نهجنا الكوتشي مبني على مبادئ أساسية تساعد الكوتشيز على التطور ليصبحوا قادة فعالين ومتوازنين. هذه الأساسيات الجوهرية مدمجة في جميع برامجنا.
           </p>
         </div>
 
@@ -301,7 +301,7 @@ export default function ProgramsPageArabic() {
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 space-y-3">
             <h3 className="text-xl font-semibold text-slate-900">تعزيز الوعي الذاتي</h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              مساعدة المدربين على تطوير وعي ذاتي أعمق من خلال فهم نقاط قوتهم وضعفهم وأسلوب قيادتهم وتأثيرهم على الآخرين. من خلال التقييمات وتمارين التأمل والملاحظات، يتعلم المدربون التعرف على أنماطهم ومحفزاتهم ونقاط العمى لديهم.
+              مساعدة الكوتشيز على تطوير وعي ذاتي أعمق من خلال فهم نقاط قوتهم وضعفهم وأسلوب قيادتهم وتأثيرهم على الآخرين. من خلال التقييمات وتمارين التأمل والملاحظات، يتعلم الكوتشيز التعرف على أنماطهم ومحفزاتهم ونقاط العمى لديهم.
             </p>
             <ul className="text-sm text-slate-600 space-y-1.5 mt-3">
               <li className="flex items-start gap-2">
@@ -323,7 +323,7 @@ export default function ProgramsPageArabic() {
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 space-y-3">
             <h3 className="text-xl font-semibold text-slate-900">التوازن بين العمل والحياة</h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              مساعدة المدربين على تحقيق توازن مستدام بين العمل والحياة من خلال وضع الحدود والأولويات بفعالية وإنشاء أنظمة تدعم التميز المهني والرفاهية الشخصية. تعلم القيادة دون التضحية بصحتك أو علاقاتك أو سعادتك.
+              مساعدة الكوتشيز على تحقيق توازن مستدام بين العمل والحياة من خلال وضع الحدود والأولويات بفعالية وإنشاء أنظمة تدعم التميز المهني والرفاهية الشخصية. تعلم القيادة دون التضحية بصحتك أو علاقاتك أو سعادتك.
             </p>
             <ul className="text-sm text-slate-600 space-y-1.5 mt-3">
               <li className="flex items-start gap-2">
@@ -345,7 +345,7 @@ export default function ProgramsPageArabic() {
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 space-y-3">
             <h3 className="text-xl font-semibold text-slate-900">تحديد الأهداف</h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              مساعدة المدربين على تحديد ووضوح أهدافهم من خلال تمارين منظمة وتأمل عميق. التمييز بين ما تعتقد أنك تريده وما يهمك حقًا، وإنشاء أهداف واضحة وذات معنى تتماشى مع قيمك ورؤيتك.
+              مساعدة الكوتشيز على تحديد ووضوح أهدافهم من خلال تمارين منظمة وتأمل عميق. التمييز بين ما تعتقد أنك تريده وما يهمك حقًا، وإنشاء أهداف واضحة وذات معنى تتماشى مع قيمك ورؤيتك.
             </p>
             <ul className="text-sm text-slate-600 space-y-1.5 mt-3">
               <li className="flex items-start gap-2">
@@ -367,7 +367,7 @@ export default function ProgramsPageArabic() {
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 space-y-3">
             <h3 className="text-xl font-semibold text-slate-900">التغلب على معضلات القيادة</h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              مساعدة المدربين على التنقل في معضلات القيادة المعقدة والمواقف الصعبة بثقة. تطوير أطر لاتخاذ القرارات وحل النزاعات وإدارة الأولويات المتعارضة. تعلم اتخاذ قرارات صعبة مع الحفاظ على العلاقات والنزاهة.
+              مساعدة الكوتشيز على التنقل في معضلات القيادة المعقدة والمواقف الصعبة بثقة. تطوير أطر لاتخاذ القرارات وحل النزاعات وإدارة الأولويات المتعارضة. تعلم اتخاذ قرارات صعبة مع الحفاظ على العلاقات والنزاهة.
             </p>
             <ul className="text-sm text-slate-600 space-y-1.5 mt-3">
               <li className="flex items-start gap-2">
@@ -389,7 +389,7 @@ export default function ProgramsPageArabic() {
           <div className="rounded-lg border border-slate-200 bg-slate-50 p-5 space-y-3 md:col-span-2 lg:col-span-1">
             <h3 className="text-xl font-semibold text-slate-900">التخطيط القابل للتنفيذ</h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              مساعدة المدربين على وضع خطط قابلة للتنفيذ لتحقيق أهدافهم. تحويل الطموحات إلى خطوات ملموسة مع الجداول الزمنية والمعالم وقياسات المساءلة. تعلم تقسيم الأهداف الكبيرة إلى إجراءات قابلة للإدارة وتتبع التقدم بفعالية.
+              مساعدة الكوتشيز على وضع خطط قابلة للتنفيذ لتحقيق أهدافهم. تحويل الطموحات إلى خطوات ملموسة مع الجداول الزمنية والمعالم وقياسات المساءلة. تعلم تقسيم الأهداف الكبيرة إلى إجراءات قابلة للإدارة وتتبع التقدم بفعالية.
             </p>
             <ul className="text-sm text-slate-600 space-y-1.5 mt-3">
               <li className="flex items-start gap-2">
@@ -410,7 +410,7 @@ export default function ProgramsPageArabic() {
 
         <div className="mt-8 p-5 rounded-lg bg-amber-50 border border-amber-200">
           <p className="text-sm text-slate-800 leading-relaxed">
-            <strong className="text-slate-900">كيف يعمل:</strong> هذه الأساسيات الجوهرية منسوجة في جميع جلسات التدريب. سيعمل مدربك معك لتقييم موقعك في كل مجال، وتحديد التحديات المحددة، وتطوير استراتيجيات شخصية لتعزيز أساس قيادتك. كل جلسة تبني على السابقة، مما يخلق رحلة تطوير شاملة.
+            <strong className="text-slate-900">كيف يعمل:</strong> هذه الأساسيات الجوهرية منسوجة في جميع جلسات الكوتشينغ. سيعمل الكوتش معك لتقييم موقعك في كل مجال، وتحديد التحديات المحددة، وتطوير استراتيجيات شخصية لتعزيز أساس قيادتك. كل جلسة تبني على السابقة، مما يخلق رحلة تطوير شاملة.
           </p>
         </div>
       </section>
@@ -419,7 +419,7 @@ export default function ProgramsPageArabic() {
       <section className="rounded-xl border border-slate-200 bg-slate-50 p-6 sm:p-8 text-center space-y-4">
         <h2 className="text-2xl font-bold text-slate-900">هل أنت مستعد للاستثمار في قيادتك؟</h2>
         <p className="text-base text-slate-700 max-w-2xl mx-auto">
-          يتضمن كل برنامج تدريبًا شخصيًا واستراتيجيات قابلة للتنفيذ ودعمًا مستمرًا. احجز استشارة مجانية لمناقشة البرنامج المناسب لك.
+          يتضمن كل برنامج كوتشينغ شخصيًا واستراتيجيات قابلة للتنفيذ ودعمًا مستمرًا. احجز استشارة مجانية لمناقشة البرنامج المناسب لك.
         </p>
         <Link
           href="https://calendly.com/coach_moteib"

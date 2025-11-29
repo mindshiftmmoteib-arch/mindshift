@@ -21,7 +21,7 @@ export default function Header() {
 
   return (
     <header
-      className="w-full rounded-none md:rounded-xl border-b md:border backdrop-blur-md shadow-lg"
+      className="w-full border-b backdrop-blur-md shadow-lg"
       style={{
         background: `linear-gradient(135deg, ${HEADER_BG} 0%, #15483b 100%)`,
         borderColor: 'rgba(185, 155, 86, 0.3)',

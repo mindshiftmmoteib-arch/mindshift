@@ -61,7 +61,7 @@ export default function ContactPageArabic() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500 mt-0.5">✓</span>
-                <span>تعرف على برامج التدريب</span>
+                <span>تعرف على برامج الكوتشينغ</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-amber-500 mt-0.5">✓</span>
@@ -103,7 +103,7 @@ export default function ContactPageArabic() {
                   <span className="text-amber-500">2.</span> جلسة الاكتشاف
                 </h3>
                 <p className="text-sm text-slate-700">
-                  خلال مكالمتنا، سنناقش رحلتك القيادية والتحديات الحالية والطموحات. هذا وقتك لطرح الأسئلة ومعرفة المزيد عن التدريب.
+                  خلال مكالمتنا، سنناقش رحلتك القيادية والتحديات الحالية والطموحات. هذا وقتك لطرح الأسئلة ومعرفة المزيد عن الكوتشينغ.
                 </p>
               </div>
 
@@ -130,7 +130,7 @@ export default function ContactPageArabic() {
           <div className="rounded-xl border border-slate-200 bg-slate-50 p-6 space-y-3">
             <h3 className="text-lg font-semibold text-slate-900">لديك أسئلة؟</h3>
             <p className="text-sm text-slate-700">
-              إذا كنت ترغب في معرفة المزيد قبل الحجز، لا تتردد في استكشاف برامج التدريب الخاصة بنا أو معرفة المزيد عن الكوتش متعب بن ناصر.
+              إذا كنت ترغب في معرفة المزيد قبل الحجز، لا تتردد في استكشاف برامج الكوتشينغ الخاصة بنا أو معرفة المزيد عن الكوتش متعب بن ناصر.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Link
@@ -163,13 +163,13 @@ export default function ContactPageArabic() {
           <div className="text-center space-y-3">
             <h3 className="font-semibold text-slate-900">تسريع النمو</h3>
             <p className="text-sm text-slate-700">
-              تعلم كيف يمكن للتدريب المنظم أن يسرع تطوير قيادتك.
+              تعلم كيف يمكن للكوتشينغ المنظم أن يسرع تطوير قيادتك.
             </p>
           </div>
           <div className="text-center space-y-3">
             <h3 className="font-semibold text-slate-900">اعثر على ما يناسبك</h3>
             <p className="text-sm text-slate-700">
-              اكتشف ما إذا كان التدريب مع الكوتش متعب بن ناصر هو التوافق الصحيح لاحتياجاتك.
+              اكتشف ما إذا كان الكوتشينغ مع الكوتش متعب بن ناصر هو التوافق الصحيح لاحتياجاتك.
             </p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default function ContactPageArabic() {
         <div className="text-center space-y-3 mb-8">
           <h2 className="text-2xl font-bold text-slate-900">ابق على اتصال</h2>
           <p className="text-base text-slate-700 max-w-2xl mx-auto">
-            اشترك لتلقي رؤى القيادة ونصائح التدريب والتحديثات من MindShift Arabia.
+            اشترك لتلقي رؤى القيادة ونصائح الكوتشينغ والتحديثات من MindShift Arabia.
           </p>
         </div>
         <NewsletterSignup isArabic={true} />

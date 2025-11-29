@@ -29,14 +29,14 @@ export default function CoachPageArabic() {
 
   const certificates = [
     {
-      title: "التدريب المتمركز حول أصحاب المصلحة",
+      title: "الكوتشينغ المتمركز حول أصحاب المصلحة",
       image: "/1.png",
-      alt: "شهادة التدريب المتمركز حول أصحاب المصلحة"
+      alt: "شهادة الكوتشينغ المتمركز حول أصحاب المصلحة"
     },
     {
-      title: "أساسيات التدريب",
+      title: "أساسيات الكوتشينغ",
       image: "/2.png",
-      alt: "شهادة أساسيات التدريب من إنسياد"
+      alt: "شهادة أساسيات الكوتشينغ من إنسياد"
     },
     {
       title: "القيادة في عالم متحول",
@@ -79,7 +79,7 @@ export default function CoachPageArabic() {
             الكوتش متعب بن ناصر العجمي هو مدرب قيادة معتمد من المملكة العربية السعودية، مكرس لمساعدة المديرين والقادة على بناء حياة متوازنة وناجحة مع تحقيق أهدافهم المهنية.
           </p>
           <p className="text-base text-slate-700 leading-relaxed">
-            بفهم عميق للتحديات الفريدة التي تواجه القادة في عالم اليوم سريع الوتيرة، يجلب الكوتش متعب بن ناصر نهجًا عمليًا موجهًا نحو النتائج في تطوير القيادة. تتمحور فلسفة تدريبه حول خلق تغيير مستدام يمتد إلى ما وراء النجاح المهني ليشمل الإشباع الشخصي والرفاهية.
+            بفهم عميق للتحديات الفريدة التي تواجه القادة في عالم اليوم سريع الوتيرة، يجلب الكوتش متعب بن ناصر نهجًا عمليًا موجهًا نحو النتائج في تطوير القيادة. تتمحور فلسفة الكوتشينغ الخاصة به حول خلق تغيير مستدام يمتد إلى ما وراء النجاح المهني ليشمل الإشباع الشخصي والرفاهية.
           </p>
           <p className="text-base text-slate-700 leading-relaxed">
             بعد عمله مع مديرين عبر مختلف الصناعات والمستويات التنظيمية، طور الكوتش متعب بن ناصر منهجية مثبتة تجمع بين الممارسات القائمة على الأدلة والرؤى ذات الصلة الثقافية المصممة خصيصًا للسياق السعودي والشرق أوسطي.
@@ -87,7 +87,7 @@ export default function CoachPageArabic() {
         </div>
 
         <div className="rounded-xl border border-slate-200 bg-[#f8f4ed] shadow-sm p-6 space-y-4">
-          <h2 className="text-2xl font-bold text-slate-900">فلسفة التدريب</h2>
+          <h2 className="text-2xl font-bold text-slate-900">فلسفة الكوتشينغ</h2>
           <p className="text-base text-slate-800 leading-relaxed">
             &ldquo;القيادة الحقيقية ليست في تحقيق المزيد على حساب رفاهيتك. إنها في بناء حياة متوازنة حيث يتعايش التميز المهني والإشباع الشخصي.&rdquo;
           </p>
@@ -173,7 +173,7 @@ export default function CoachPageArabic() {
           هل أنت مستعد لبدء رحلتك القيادية؟
         </h2>
         <p className="text-base sm:text-lg text-slate-700 max-w-2xl mx-auto">
-          احجز مكالمة استشارية مجانية لمناقشة أهدافك واكتشاف كيف يمكن للتدريب أن يساعدك على تحقيقها.
+          احجز مكالمة استشارية مجانية لمناقشة أهدافك واكتشاف كيف يمكن للكوتشينغ أن يساعدك على تحقيقها.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
@@ -188,7 +188,7 @@ export default function CoachPageArabic() {
             href="/ar/programs"
             className="inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 font-semibold border-2 border-slate-900 text-slate-900 hover:bg-[#f8f4ed] focus:outline-none focus:ring-2 focus:ring-slate-300 transition-colors"
           >
-            عرض برامج التدريب
+            عرض برامج الكوتشينغ
           </Link>
         </div>
       </section>

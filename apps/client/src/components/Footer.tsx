@@ -8,7 +8,13 @@ export default function Footer() {
   const isArabic = pathname?.startsWith('/ar');
 
   return (
-    <footer className="mt-auto w-full bg-[#1A5345] text-white py-8 px-4">
+    <footer
+      className="mt-auto w-full text-white py-8 px-4 border-t backdrop-blur-md shadow-lg"
+      style={{
+        background: 'linear-gradient(135deg, #1A5345 0%, #15483b 100%)',
+        borderColor: 'rgba(185, 155, 86, 0.3)',
+      }}
+    >
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Newsletter Section */}
         <div className="max-w-xl mx-auto">
